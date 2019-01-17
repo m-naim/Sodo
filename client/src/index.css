@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -34,13 +35,14 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
 }
 
 #wrapper #content-wrapper {
-  overflow-x: hidden;
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 80px;
+  background-color: #2e3338 !important;
 }
 
 body.fixed-nav #content-wrapper {
@@ -367,12 +369,13 @@ footer.sticky-footer {
   bottom: 0;
   width: calc(100% - 90px);
   height: 80px;
-  background-color: #e9ecef;
+  background-color: #2e3338;
+  color: rgb(246, 249, 255); 
 }
 
 footer.sticky-footer .copyright {
   line-height: 1;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
