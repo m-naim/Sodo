@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import $ from 'jquery/dist/jquery';
+import {Link } from "react-router-dom";
+import Footer from './footer';
 
 class SideBar extends Component {
-    constructor(){
-        super();
-    }
     componentDidMount(){
         $("#sidebarToggle").on('click',function(e) {
             e.preventDefault();
@@ -14,41 +13,32 @@ class SideBar extends Component {
     }
   render() {
     return (
-    <div>
-      <ul class="sidebar navbar-nav">
+    <div className='sidebar'>
+      <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
+        <Link to="/" class="nav-link">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </Link>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+        <Link to="/tasks" class="nav-link">
           <i class="fas fa-fw fa-tasks"></i>
             <span>Tasks</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a>
-          </div>
+        </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <Link to="/Calendar" class="nav-link">
           <i class="fas fa-fw fa-calendar-alt"></i>
-            <span>Calendar</span></a>
+            <span>Calendar</span></Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+            <Link to="/Settings" class="nav-link">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Settings</span></a>
+            <span>Settings</span></Link>
         </li>
       </ul>
+      <Footer />
       </div>
     );
   }

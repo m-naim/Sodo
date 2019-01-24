@@ -66,7 +66,7 @@ class List extends Component {
         {i.text}
         <div>
         <button className="btn btn-success" value={i.id} onClick={this.handleDone}>
-        <i class="far fa-check-circle"></i></button>
+        <i class="far fa-check-circle" ></i></button>
         <button className="btn btn-ligth" value={i.id} >
         <i class="fas fa-ellipsis-v"></i></button>
         </div>

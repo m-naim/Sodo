@@ -7,11 +7,11 @@ class Foooter extends Component {
       <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-            <span>Contact me on </span>
-            <a href="#">   <i class="fab fa-linkedin"></i></a>
-            <a href="#">     <i class="fab fa-github-square"></i></a>
+            <span>Contact </span> <br/>
+            <a href="#">   <i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="#">     <i class="fab fa-github-square fa-2x"></i></a>
             <br/>
-            <span>Copyright © Your Website 2018</span>
+            <span> made by naim</span>
             </div>
           </div>
         </footer>
