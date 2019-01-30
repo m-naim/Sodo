@@ -1,4 +1,4 @@
 module.exports = {
-    remoteUrl : 'mongodb://naim:ssh0707@ds115094.mlab.com:15094/quotesdb',
-    localUrl: 'mongodb://localhost/meanstacktutorials'
+    remoteUrl : 'mongodb://user:pass@user.mlab.com:port/databaseName',
+    localUrl: 'mongodb://localhost/meanstack'
 };
