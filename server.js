@@ -33,5 +33,5 @@ app.use('/todo',routes);
 
 var port = process.env.PORT || 8080; 				// set the port
 app.listen(port, ()=>{
-    console.log('server runing on port n:'+port+process.env);
+    console.log('server runing on port n:'+port+process.env.PORT);
 });
