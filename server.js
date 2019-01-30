@@ -24,11 +24,13 @@ app.use('/todo',routes);
 
 
   // ... other app.use middleware 
-  
-  app.use(express.static(path.join(__dirname, "client", "build")))
-  app.get("*", (req, res) => {
+  if(process.env.ENV==='production'){
+    app.use(express.static(path.join(__dirname, "client", "build")))
+    app.get("*", (req, res) => {
+    console.log('port: '+process.env.PORT);
       res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
+    });
+  }
   
 
 var port = process.env.PORT || 8080; 				// set the port
