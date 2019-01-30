@@ -1,5 +1,6 @@
 const express= require('express');
-
+// ... other imports 
+const path = require("path")
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -19,6 +20,14 @@ app.use(bodyParser.json());
 
 app.get('/', ()=>{console.log('hello world');});
 app.use('/todo',routes);
+
+if(process.env.NODE_ENV==='production') {
+  // ... other app.use middleware 
+  app.use(express.static(path.join(__dirname, "client", "build")))
+  app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 
 var port = process.env.PORT || 8080; 				// set the port
 app.listen(port, ()=>{

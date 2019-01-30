@@ -1,4 +1,4 @@
 module.exports = {
-    remoteUrl : 'mongodb://user:pass@user.mlab.com:port/databaseName',
+    remoteUrl : process.env.DATABASE_URL,
     localUrl: 'mongodb://localhost/meanstack'
 };
