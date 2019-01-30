@@ -13,8 +13,8 @@ class SideBar extends Component {
     }
   render() {
     return (
-    <div className='sidebar'>
-      <ul class="navbar-nav">
+    <div className='sidebar static-top'>
+      <ul class="navbar-nav nav-width ">
         <li class="nav-item active">
         <Link to="/" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>

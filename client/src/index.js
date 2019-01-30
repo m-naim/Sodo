@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
 import DashBord from './scenes/dashbord/index';
 import calendar from './scenes/calendar/index';
 import settings from './scenes/settings/index';

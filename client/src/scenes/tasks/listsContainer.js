@@ -2,34 +2,48 @@ import React, { Component } from 'react';
 import List from './list'
 import SideBar from '../../components/sideBar';
 import OptionsBar from '../../components/optionBar';
-import Footer from '../../components/footer';
 
 class ListsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          title: 'new List',
+          input:'',
           lists: [],
         }
     
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
       }
       handleClick() {
         this.setState({
-          lists: this.state.lists.concat(this.state.title)
+          lists: this.state.lists.concat(this.state.input),
+          title: this.state.input
         })
       }
+      handleChange(e) {
+        this.setState({
+          input: e.target.value
+        })
+      }
+
   render() {
-    const listsArr = this.state.lists.map((i) => <List />);
+    const listsArr = this.state.lists.map((i) => <List name={i} />);
     return (
       <div>
           <OptionsBar />
           <div id="wrapper" >
             
             <SideBar />
-            <div id='content-wrapper'>
+            <div id='tasks' className="scrollbar">
                   {listsArr}
-                  <button onClick={this.handleClick}>new list</button>
+                  <div class="card text-center">
+                    <button className="btn-ico btn-pad snow fas fa-plus" onClick={this.handleClick} >New list</button>
+                    <input class='inp snow' 
+                      placeholder="Tape the liste name" 
+                      type="text" value={this.state.input} 
+                      onChange={this.handleChange} />
+
+                  </div>
             </div>
             
           </div>

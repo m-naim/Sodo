@@ -38,7 +38,7 @@ class DashBord extends Component {
         <OptionsBar />
         <div id="wrapper" >
           <SideBar />
-          <div id="dashbord">        
+          <div id="dashbord" className="scrollbar">        
               <div id="today" >
                 <h1 className="div-title"> <i class="far fa-caret-square-right"></i> To Do Today</h1>
                 {todayTasks}

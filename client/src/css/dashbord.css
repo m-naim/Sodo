@@ -1,0 +1,68 @@
+
+/*--------------------------------------
+------------// dashbord //--------------
+---------------------------------------*/
+#dashbord{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 86vw;
+    height: 86vh;
+    padding: 20px;
+  }
+  #quotes{
+    width: 20vw;
+  }
+  
+  .div-title{
+    border-bottom:  1px solid white;
+    padding: 10px 10px;
+    font-size: 18px;
+    color: aliceblue;
+  }
+  
+  .task-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(15, 15, 15, 0.2);
+    color: aliceblue;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  .card-bottom{
+    display: flex;
+    justify-content: space-around;
+    width: 100%
+  }
+  .done-btn{
+    width: 60%;
+    background-color: #383d44 !important;
+    color: #28a745 !important;
+  }
+  .no-btn{
+    background-color: #383d44 !important;
+    color:  #dc3545 !important;
+  }
+  
+  #quote-box{
+    color: rgb(86, 89, 92);
+    background-color: rgb(255, 255, 255);
+    padding: 0 30px;
+    border-radius: 5px;
+  }
+  #today{
+    min-width: 400px;
+    margin: 0 5px;
+  }
+  #important{
+    min-width: 400px;
+    margin: 0 5px;
+  }
+  
+  i{
+    margin: 0 10px;
+  }

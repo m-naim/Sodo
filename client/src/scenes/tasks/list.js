@@ -5,7 +5,7 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: 'hello me',
+      input: '',
       list: [],
       id: 1
     }
@@ -38,7 +38,8 @@ class List extends Component {
         id: this.state.id + 1,
         text: this.state.input
       }),
-      id: this.state.id + 1
+      id: this.state.id + 1,
+      input: ''
     })
     /*
         let obj={
@@ -51,8 +52,8 @@ class List extends Component {
   handleDone(e) {
 
     this.setState({
-      list: this.state.list.filter(function (obj) {
-        if (obj.id == e.target.value) {
+      list: this.state.list.filter(function (o) {
+        if (o.id == e.target.value) {
           return false;
         } else {
           return true;
@@ -62,31 +63,26 @@ class List extends Component {
   }
   render() {
     const listItems = this.state.list.map((i) =>
-      <li key={i.id} className="list-group-item d-flex justify-content-between">
+      <li key={i.id} className="list-group-item ">
         {i.text}
-        <div>
-        <button className="btn btn-success" value={i.id} onClick={this.handleDone}>
-        <i class="far fa-check-circle" ></i></button>
-        <button className="btn btn-ligth" value={i.id} >
-        <i class="fas fa-ellipsis-v"></i></button>
+        <div className="float-right">
+          <button className="btn-ico grn far fa-check-circle" value={i.id} onClick={this.handleDone}/>
+          <button className="btn-ico fas fa-ellipsis-v" value={i.id} />
         </div>
         
       </li>
     );
     return (
       <div class="card" style={{width: "18em"}}>
-        <div class="card-header">
-          List Name
+        <div class="header-card">
+           {this.props.name}
+          <button className="btn-ico snow fas fa-ellipsis-v float-right" />
         </div>
         <div className="list-group">
           {listItems}
-        </div>
-        <div class="card-footer">
-          <div class="input-group mb-3">
-            <input type="text" value={this.state.input} onChange={this.handleChange} />
-            <div class="input-group-append">
-              <button className="btn btn-info btn-outline-secondary" onClick={this.handleClick} >add</button>
-            </div>
+          <div class="input-group text-center">
+            <button className="btn-ico snow fas fa-plus" onClick={this.handleClick} >Add</button>
+            <input class='inp snow' placeholder="add new Task" type="text" value={this.state.input} onChange={this.handleChange} />
           </div>
         </div>
       </div>
