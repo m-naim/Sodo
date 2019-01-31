@@ -8,19 +8,19 @@ const config = require('./config/database.js');
 const routes= require('./app/routes.js');
 
 require('dotenv').config();
+
 mongoose.Promise = global.Promise;
-/*
-mongoose.connect(config.remoteUrl, { useNewUrlParser: true }).then(
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }).then(
   () => {console.log('Database is connected') },
   err => { console.log('Can not connect to the database'+ err)}
-);*/
+);
 
 let app=express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/todo',routes);
+app.use('/',routes);
 
 
   // ... other app.use middleware 

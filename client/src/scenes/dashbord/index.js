@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OptionsBar from '../../components/optionBar';
 import SideBar from '../../components/sideBar';
-//import QuoteBox from '../../components/quoteBox';
+import QuoteBox from '../../components/quoteBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
@@ -49,8 +49,7 @@ class DashBord extends Component {
               </div>
             <div id="quotes">
             <h1 className="div-title"><i class="fas fa-bolt"></i> Some motivation</h1>
-              {//<QuoteBox/>
-              }
+              <QuoteBox/>
             </div>
           </div>
           
