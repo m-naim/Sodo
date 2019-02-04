@@ -7,9 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 class DashBord extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     
     return (

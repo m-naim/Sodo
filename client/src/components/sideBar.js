@@ -14,27 +14,27 @@ class SideBar extends Component {
   render() {
     return (
     <div className='sidebar static-top'>
-      <ul class="navbar-nav nav-width ">
-        <li class="nav-item active">
-        <Link to="/" class="nav-link">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+      <ul className="navbar-nav nav-width ">
+        <li className="nav-item active">
+        <Link to="/" className="nav-link">
+          <i className="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </Link>
         </li>
-        <li class="nav-item">
-        <Link to="/tasks" class="nav-link">
-          <i class="fas fa-fw fa-tasks"></i>
+        <li className="nav-item">
+        <Link to="/tasks" className="nav-link">
+          <i className="fas fa-fw fa-tasks"></i>
             <span>Tasks</span>
         </Link>
         </li>
-        <li class="nav-item">
-          <Link to="/Calendar" class="nav-link">
-          <i class="fas fa-fw fa-calendar-alt"></i>
+        <li className="nav-item">
+          <Link to="/Calendar" className="nav-link">
+          <i className="fas fa-fw fa-calendar-alt"></i>
             <span>Calendar</span></Link>
         </li>
-        <li class="nav-item">
-            <Link to="/Settings" class="nav-link">
-            <i class="fas fa-fw fa-cog"></i>
+        <li className="nav-item">
+            <Link to="/Settings" className="nav-link">
+            <i className="fas fa-fw fa-cog"></i>
             <span>Settings</span></Link>
         </li>
       </ul>

@@ -6,7 +6,7 @@ module.exports={
         let obj = { name}
         new List(obj).save()
           .then( function() {
-            res.status(200).json({list: ' added successfully'});
+            res.status(200).json({info:' added successfully'});
           })
           .catch(next);
       },
@@ -30,5 +30,13 @@ module.exports={
                 return res.json({msg: "Done"})
             })
         }).catch(next)
+    },
+    delList: (req, res, next) => {
+        List.findById(req.params.id)
+            .then(item => item.remove().then(() => res.json({ success: true })))
+            .catch(err =>{
+                res.status(404).json({ success: false })
+                next
+            } );
     }
 }

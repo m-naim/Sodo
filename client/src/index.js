@@ -6,9 +6,12 @@ import calendar from './scenes/calendar/index';
 import settings from './scenes/settings/index';
 import ListsContainer from './scenes/tasks/listsContainer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './store';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
+  <Provider store={store}>
     <Router>
       <div>
         <Route exact path="/" component={DashBord} />
@@ -17,6 +20,7 @@ const routing = (
         <Route path="/settings" component={settings} />
       </div>
     </Router>
+    </Provider>
   )
 
 ReactDOM.render(routing , document.getElementById('root'));

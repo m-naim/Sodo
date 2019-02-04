@@ -2,23 +2,30 @@ import React, { Component } from 'react';
 import List from './list'
 import SideBar from '../../components/sideBar';
 import OptionsBar from '../../components/optionBar';
+import { connect } from 'react-redux';
+import { getLists, deleteList,addList } from '../../actions/listActions';
+import PropTypes from 'prop-types';
 
 class ListsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
           input:'',
-          lists: [],
         }
     
-        this.handleClick = this.handleClick.bind(this);
+        this.handleAddClick = this.handleAddClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
       }
-      handleClick() {
-        this.setState({
-          lists: this.state.lists.concat(this.state.input),
-          title: this.state.input
-        })
+      componentDidMount() {
+        this.props.getLists()
+      }
+      handleAddClick() {
+        const newItem = {
+          name: this.state.input,
+          tasks:[]
+        };
+        // Add item via addItem action
+        this.props.addList(newItem); 
       }
       handleChange(e) {
         this.setState({
@@ -27,7 +34,7 @@ class ListsContainer extends Component {
       }
 
   render() {
-    const listsArr = this.state.lists.map((i) => <List name={i} />);
+    const listsArr = this.props.lists.lists.map((i) => <List key={i._id} name={i.name} tasks={i.tasks} id={i._id} del={this.props.deleteList}/>);
     return (
       <div>
           <OptionsBar />
@@ -36,9 +43,9 @@ class ListsContainer extends Component {
             <SideBar />
             <div id='tasks' className="scrollbar">
                   {listsArr}
-                  <div class="card text-center">
-                    <button className="btn-ico btn-pad snow fas fa-plus" onClick={this.handleClick} >New list</button>
-                    <input class='inp snow' 
+                  <div className="card text-center">
+                    <button className="btn-ico btn-pad snow fas fa-plus" onClick={this.handleAddClick} >New list</button>
+                    <input className='inp snow' 
                       placeholder="Tape the liste name" 
                       type="text" value={this.state.input} 
                       onChange={this.handleChange} />
@@ -54,4 +61,16 @@ class ListsContainer extends Component {
   }
 }
 
-export default ListsContainer;
+ListsContainer.propTypes = {
+  getLists: PropTypes.func.isRequired,
+  lists: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  lists: state.lists
+});
+
+export default connect(
+  mapStateToProps,
+  { getLists, deleteList ,addList}
+)(ListsContainer);

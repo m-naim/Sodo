@@ -9,6 +9,10 @@ todoRoutes
 todoRoutes
           .route('/addtask')
           .post(listControler.addTask);
+
+todoRoutes
+          .route('/dellist/:id')
+          .post(listControler.delList);
           
   // Defined get data(index or listing) route
 todoRoutes
