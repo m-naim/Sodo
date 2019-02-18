@@ -34,7 +34,8 @@ class ListsContainer extends Component {
       }
 
   render() {
-    const listsArr = this.props.lists.lists.map((i) => <List key={i._id} name={i.name} tasks={i.tasks} id={i._id} del={this.props.deleteList}/>);
+    
+    const listsArr = this.props.lists.lists.map((i,idx) => <List idx={idx} key={i._id} name={i.name} id={i._id} del={this.props.deleteList}/>);
     return (
       <div>
           <OptionsBar />

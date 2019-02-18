@@ -14,4 +14,10 @@ listSchema.methods.newTask = function(t) {
     this.tasks.push(t)
     return this.save()
 }
+listSchema.methods.taskDone= function(id) {
+    console.log(id)
+    this.tasks= this.tasks.filter(item => item._id != id)
+    console.log(this.tasks)
+    return this.save()
+}
 module.exports = mongoose.model('List', listSchema);

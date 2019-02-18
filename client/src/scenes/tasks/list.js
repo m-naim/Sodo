@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 import { connect } from 'react-redux';
-import {  deleteList } from '../../actions/listActions';
+import {  deleteList, addTask, taskDone } from '../../actions/listActions';
 
 class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
       input: '',
-      tasks:[],
-      id: 1
+      lists:[{
+        name:'',
+        tasks:[]
+      }],
     }
     this.handleDelClick = this.handleDelClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,40 +29,27 @@ class List extends Component {
   handleClick() {
     let obj={
       list_id: this.props.id,
+      index: this.props.idx,
       todo: this.state.input
     }
-      axios.post('/addtask', obj)
-          .then(res => console.log(res.data));
-
-    this.setState({
-      tasks: this.state.tasks.concat({
-        id: this.state.id + 1,
-        todo: this.state.input
-      }),
-      id: this.state.id + 1,
-      input: ''
-    })
+      this.props.addTask(obj);
      
   }
   handleDone(e) {
-
-    this.setState({
-      list: this.state.tasks.filter(function (o) {
-        if (o.id == e.target.value) {
-          return false;
-        } else {
-          return true;
-        }
-      })
-    });
+    let taskObj={
+      list_id: this.props.id,
+      task_id: e.target.value
+    }
+    console.log(taskObj)
+    this.props.taskDone(taskObj);
   }
   render() {
-    const listItems = this.props.tasks.map((i) =>
+    const listItems = this.props.lists.lists[this.props.idx].tasks.map((i) =>
       <li key={i._id} className="list-group-item ">
         {i.todo}
         <div className="float-right">
-          <button className="btn-ico grn far fa-check-circle" value={i.id} onClick={this.handleDone}/>
-          <button className="btn-ico fas fa-ellipsis-v" value={i.id} />
+          <button className="btn-ico grn far fa-check-circle" value={i._id} onClick={this.handleDone}/>
+          <button className="btn-ico fas fa-ellipsis-v" value={i._id} />
         </div>
         
       </li>
@@ -85,9 +72,9 @@ class List extends Component {
   }
 }
 const mapStateToProps = state => ({
-  lists: state.lists
+  lists: state.lists,
 });
 
 export default connect(mapStateToProps,
-  {  deleteList }
+  {  deleteList , addTask, taskDone}
 )(List);

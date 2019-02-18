@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING } from './types';
+import { ADD_TASK,GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING,TASK_DONE } from './types';
 
 export const getLists = () => dispatch => {
   dispatch(setListsLoading());
@@ -15,7 +15,7 @@ export const addList = item => dispatch => {
   axios.post('/addlist', item).then(res =>
     dispatch({
       type: ADD_LIST,
-      payload: item
+      payload: res.data
     })
   );
 };
@@ -33,4 +33,25 @@ export const setListsLoading = () => {
   return {
     type: LISTS_LOADING
   };
+};
+
+export const addTask = obj => dispatch => {
+  axios.post('/addtask', obj).then(res =>
+    dispatch({
+      type: ADD_TASK,
+      payload: res.data
+    })
+  );
+};
+
+export const taskDone = obj => dispatch => {
+
+  axios.post('/taskdone', obj).then(res=>{
+    console.log('dano bab')
+    dispatch({
+      type: TASK_DONE,
+      payload: res.data
+    })
+  }
+  );
 };

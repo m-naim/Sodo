@@ -2,13 +2,9 @@ const List = require('./../models/List')
 
 module.exports={
     newList: (req, res, next) =>{
-        let { name } = req.body
-        let obj = { name}
-        new List(obj).save()
-          .then( function() {
-            res.status(200).json({info:' added successfully'});
-          })
-          .catch(next);
+        const newList = new List( req.body );
+        newList.save().then(list => res.send(list))
+        .catch(next);
       },
     getAll: (req, res,next) =>{
         List.find()
@@ -19,24 +15,47 @@ module.exports={
                 res.send(404)
             else
                 res.send(list)
-            next()            
+            next           
         })
     },
     addTask: (req, res, next) => {
         List.findById(req.body.list_id).then((list)=> {
             return list.newTask({
                 todo: req.body.todo
-            }).then(() => {
-                return res.json({msg: "Done"})
+            }).then(()=> {
+                List.find()
+                .exec((err, list)=> {
+                    if (err)
+                        res.send(err)
+                    else
+                        res.send(list)          
+                })
             })
         }).catch(next)
     },
     delList: (req, res, next) => {
         List.findById(req.params.id)
-            .then(item => item.remove().then(() => res.json({ success: true })))
+            .then(item => item.remove().then(() => res.send({ success: true })))
             .catch(err =>{
-                res.status(404).json({ success: false })
+                res.status(404).send({ erreur: err })
                 next
             } );
+    },
+    taskDone:(req, res, next) => {
+        List.findById(req.body.list_id)
+        .then((list) => { return list.taskDone(req.body.task_id)})
+        .then(()=> {
+            List.find()
+            .exec((err, list)=> {
+                if (err)
+                    res.send(err)
+                else
+                    res.send(list)          
+            })
+        })
+        .catch(err =>{
+            res.status(404).send({ erreur: err })
+            next
+        } );
     }
 }

@@ -1,7 +1,16 @@
-import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING } from '../actions/types';
+import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING, ADD_TASK, TASK_DONE } from '../actions/types';
   
   const initialState = {
-    lists:[],
+    lists:[{
+      name: '',
+      tasks:[
+        {
+
+        }
+      ]
+    }
+    ],
+    
     loading: false
   };
   
@@ -21,7 +30,18 @@ import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING } from '../actions/type
       case ADD_LIST:
         return {
           ...state,
-          lists: [action.payload, ...state.lists]
+          lists: [...state.lists,action.payload]
+        };
+        case ADD_TASK:
+        return {
+          ...state,
+          lists: action.payload
+          
+        };
+        case TASK_DONE:
+        return {
+          ...state,
+          lists: action.payload
         };
       case LISTS_LOADING:
         return {
@@ -31,4 +51,6 @@ import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING } from '../actions/type
       default:
         return state;
     }
-  }
+  };
+
+

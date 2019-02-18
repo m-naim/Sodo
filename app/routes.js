@@ -1,8 +1,20 @@
 const listControler = require('./controllers/list.ctrl');
-
+const passport    = require('passport');
 const express = require('express');
 const todoRoutes = express.Router();
 
+
+//auth routes
+todoRoutes.get('/auth/facebook',
+passport.authenticate('facebook'));
+
+todoRoutes.get('/auth/facebook/callback',
+passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+});
+//
 todoRoutes
           .route('/addlist')
           .post(listControler.newList);
@@ -18,6 +30,10 @@ todoRoutes
 todoRoutes
           .route('/lists')
           .get(listControler.getAll);
+
+todoRoutes
+          .route('/taskdone')
+          .post(listControler.taskDone);
 
 
 module.exports = todoRoutes;
