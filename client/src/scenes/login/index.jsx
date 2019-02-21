@@ -16,7 +16,7 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
-                <a href="http://localhost:8080/auth/facebook" class="button">
+                <a href="/auth/facebook" class="button">
                     <div>
                         <span class="button-label">Sign in with Facebook</span>
                     </div>
