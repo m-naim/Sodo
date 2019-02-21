@@ -14,7 +14,12 @@ passport.authenticate('facebook', { failureRedirect: '/login' }),
     // Successful authentication, redirect home.
     var token = req.user._id;
     console.log(token);
-    res.redirect("http://localhost:3000/login?token=" + token);
+    if(process.env.ENV==='production'){
+      res.redirect("/login?token=" + token);
+    }
+    else{
+      res.redirect("http://localhost:3000/login?token=" + token);
+    }
 });
 //
 todoRoutes
