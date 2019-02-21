@@ -45,7 +45,7 @@ module.exports = function (app, db) {
               {upsert:true, new: true}, //Insert object if not found, Return new object after modify
               (err, doc) => {
                   console.log(err)
-                  //return cb(null, doc.value);
+                  return cb(null, doc.value);
               }
           );
        }

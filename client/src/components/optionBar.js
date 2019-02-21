@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 class OptionsBar extends Component {
-
+onLogout=()=>{
+    window.localStorage.removeItem('jwt');	
+}
   render() {
     return (
         <nav id="nav" className="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -58,7 +60,7 @@ class OptionsBar extends Component {
               <a className="dropdown-item" href="#">Settings</a>
               <a className="dropdown-item" href="#">Activity Log</a>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+              <a className="dropdown-item" onClick={this.onLogout} href="/" >Logout</a>
             </div>
           </li>
         </ul>
