@@ -41,7 +41,7 @@ var session = expressSession( {
 app.use( session );
 
 
-  mongo.connect(process.env.DATABASE_URL, { useNewUrlParser: true }, (err, db) => {
+  mongo.connect(process.env.DATABASE_URL, (err, db) => {
     if(err) {
         console.log('Database error: ' + err);
     } else {

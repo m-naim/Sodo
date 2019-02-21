@@ -12,7 +12,7 @@ todoRoutes.get('/auth/facebook/callback',
 passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    var token = req.user.id;
+    var token = req.user._id;
     console.log(token);
     res.redirect("http://localhost:3000/login?token=" + token);
 });

@@ -2,12 +2,13 @@ const List = require('./../models/List')
 
 module.exports={
     newList: (req, res, next) =>{
-        const newList = new List( req.body );
+        const newList = new List( {'name':req.body.name} );
+        newList.addUser(req.body.user);
         newList.save().then(list => res.send(list))
         .catch(next);
       },
     getAll: (req, res,next) =>{
-        List.find()
+        List.find({user: [req.headers.token]})
         .exec((err, list)=> {
             if (err)
                 res.send(err)

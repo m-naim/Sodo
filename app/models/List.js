@@ -2,6 +2,12 @@ var mongoose = require('mongoose');
 
 let listSchema=new mongoose.Schema(
     {
+        user:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ] ,
         name: String,
         tasks:[
             {
@@ -13,6 +19,10 @@ let listSchema=new mongoose.Schema(
 listSchema.methods.newTask = function(t) {
     this.tasks.push(t)
     return this.save()
+}
+listSchema.methods.addUser = function(u) {
+    this.user.push(u)
+    return this;
 }
 listSchema.methods.taskDone= function(id) {
     console.log(id)
