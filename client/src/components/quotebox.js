@@ -8,7 +8,7 @@ let urlQuotes = 'https://gist.githubusercontent.com/'+
                 'raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
 let somequotes=[
        {
-         quote: "qerm dnqizb",
+         quote: "quote of the day",
          author: "me"
        } ];
 
@@ -19,6 +19,7 @@ class QuoteBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            monted: false,
             position: 0,
             quotes: somequotes
         }
@@ -50,20 +51,22 @@ class QuoteBox extends Component {
         axios.get(urlQuotes)
           .then(res => {
               console.log(res.data.quotes);
-            this.setState({ quotes: res.data.quotes });
+            this.setState({ quotes: res.data.quotes, monted: true });
           })
       }
     
 
     render() {
+        var date= new Date();
+        date=date.getTime()%100;
         return (
             <div id="quote-box" >
                 <blockquote id="blockquote">
                     <p id="text"><i className="fa fa-quote-left"> </i>
-                        {  this.state.quotes[this.state.position].quote }
+                        {  this.state.monted?this.state.quotes[date].quote:this.state.quotes[0].quote }
                     </p>
                     <footer className="blockquote-footer">
-                        <p id="author">{ this.state.quotes[this.state.position].author }</p>
+                        <p id="author">{ this.state.monted?this.state.quotes[date].author:this.state.quotes[0].author }</p>
                     </footer>
                 </blockquote>
             </div>
