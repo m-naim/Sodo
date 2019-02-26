@@ -47,11 +47,21 @@ class List extends Component {
     const listItems = this.props.lists.lists[this.props.idx].tasks.map((i) =>
       <li key={i._id} className="list-group-item ">
         {i.todo}
-        <div className="float-right">
+        <div className="">
           <button className="btn-ico grn far fa-check-circle" value={i._id} onClick={this.handleDone}/>
-          <button className="btn-ico fas fa-ellipsis-v" value={i._id} />
+          {/*<button className="btn-ico fas fa-ellipsis-v" value={i._id} />*/}
+          <div className="nav-item ">
+            <a className="text-dark" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i className="btn-ico fas fa-ellipsis-v"></i>
+            </a>
+            <div className="dropdown-menu dropdown-menu-left" aria-labelledby="alertsDropdown">
+              <a className="dropdown-item" href="#">delete</a>
+              <a className="dropdown-item" href="#">dead line</a>
+              <div className="dropdown-divider"></div>
+              <a className="dropdown-item" href="#">else</a>
+            </div>
+          </div>
         </div>
-        
       </li>
     );
     return (

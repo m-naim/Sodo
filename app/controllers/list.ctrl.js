@@ -24,7 +24,7 @@ module.exports={
             return list.newTask({
                 todo: req.body.todo
             }).then(()=> {
-                List.find()
+                List.find({user: [req.headers.token]})
                 .exec((err, list)=> {
                     if (err)
                         res.send(err)
@@ -46,7 +46,7 @@ module.exports={
         List.findById(req.body.list_id)
         .then((list) => { return list.taskDone(req.body.task_id)})
         .then(()=> {
-            List.find()
+            List.find({user: [req.headers.token]})
             .exec((err, list)=> {
                 if (err)
                     res.send(err)
