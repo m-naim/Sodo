@@ -2,8 +2,9 @@ const List = require('./../models/List')
 
 module.exports={
     newList: (req, res, next) =>{
+        console.log( req.body.token);
         const newList = new List( {'name':req.body.name} );
-        newList.addUser(req.body.user);
+        newList.addUser(req.body.token);
         newList.save().then(list => res.send(list))
         .catch(next);
       },
@@ -21,10 +22,11 @@ module.exports={
     },
     addTask: (req, res, next) => {
         List.findById(req.body.list_id).then((list)=> {
+            console.log(req.body.todo)
             return list.newTask({
                 todo: req.body.todo
             }).then(()=> {
-                List.find({user: [req.headers.token]})
+                List.find({user: [req.body.token]})
                 .exec((err, list)=> {
                     if (err)
                         res.send(err)
@@ -43,10 +45,11 @@ module.exports={
             } );
     },
     taskDone:(req, res, next) => {
+        
         List.findById(req.body.list_id)
         .then((list) => { return list.taskDone(req.body.task_id)})
         .then(()=> {
-            List.find({user: [req.headers.token]})
+            List.find({user: [req.body.token]})
             .exec((err, list)=> {
                 if (err)
                     res.send(err)

@@ -47,7 +47,6 @@ export const addTask = obj => dispatch => {
 export const taskDone = obj => dispatch => {
 
   axios.post('/taskdone', obj).then(res=>{
-    console.log('dano bab')
     dispatch({
       type: TASK_DONE,
       payload: res.data

@@ -11,7 +11,8 @@ let listSchema=new mongoose.Schema(
         name: String,
         tasks:[
             {
-                todo: String
+                todo: String,
+                limite:Date
             }
         ]
     }
@@ -21,6 +22,7 @@ listSchema.methods.newTask = function(t) {
     return this.save()
 }
 listSchema.methods.addUser = function(u) {
+    console.log(u);
     this.user.push(u)
     return this;
 }

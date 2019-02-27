@@ -30,7 +30,8 @@ class List extends Component {
     let obj={
       list_id: this.props.id,
       index: this.props.idx,
-      todo: this.state.input
+      todo: this.state.input,
+      token: window.localStorage.jwt
     }
       this.props.addTask(obj);
      
@@ -38,7 +39,8 @@ class List extends Component {
   handleDone(e) {
     let taskObj={
       list_id: this.props.id,
-      task_id: e.target.value
+      task_id: e.target.value,
+      token: window.localStorage.jwt
     }
     console.log(taskObj)
     this.props.taskDone(taskObj);

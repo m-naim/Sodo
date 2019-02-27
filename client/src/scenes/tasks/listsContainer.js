@@ -22,6 +22,7 @@ class ListsContainer extends Component {
       handleAddClick() {
         const newItem = {
           name: this.state.input,
+          token: window.localStorage.jwt,
           tasks:[]
         };
         // Add item via addItem action
