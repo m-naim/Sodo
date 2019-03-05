@@ -1,4 +1,5 @@
 const listControler = require('./controllers/list.ctrl');
+const taskControler = require('./controllers/task.ctrl');
 const passport    = require('passport');
 const express = require('express');
 const todoRoutes = express.Router();
@@ -21,13 +22,11 @@ passport.authenticate('facebook', { failureRedirect: '/login' }),
       res.redirect("http://localhost:3000/login?token=" + token);
     }
 });
-//
+
+//lists routes
 todoRoutes
           .route('/addlist')
           .post(listControler.newList);
-todoRoutes
-          .route('/addtask')
-          .post(listControler.addTask);
 
 todoRoutes
           .route('/dellist/:id')
@@ -38,9 +37,15 @@ todoRoutes
           .route('/lists')
           .get(listControler.getAll);
 
+//tasks routes
 todoRoutes
-          .route('/taskdone')
-          .post(listControler.taskDone);
-
+          .route('/gettoday')
+          .get(taskControler.getToday);
+todoRoutes
+          .route('/ntask')
+          .post(taskControler.new);
+todoRoutes
+          .route('/taskdone/:task_id')
+          .post(taskControler.taskDone);
 
 module.exports = todoRoutes;

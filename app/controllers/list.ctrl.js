@@ -20,22 +20,6 @@ module.exports={
             next           
         })
     },
-    addTask: (req, res, next) => {
-        List.findById(req.body.list_id).then((list)=> {
-            console.log(req.body.todo)
-            return list.newTask({
-                todo: req.body.todo
-            }).then(()=> {
-                List.find({user: [req.body.token]})
-                .exec((err, list)=> {
-                    if (err)
-                        res.send(err)
-                    else
-                        res.send(list)          
-                })
-            })
-        }).catch(next)
-    },
     delList: (req, res, next) => {
         List.findById(req.params.id)
             .then(item => item.remove().then(() => res.send({ success: true })))
@@ -43,23 +27,5 @@ module.exports={
                 res.status(404).send({ erreur: err })
                 next
             } );
-    },
-    taskDone:(req, res, next) => {
-        
-        List.findById(req.body.list_id)
-        .then((list) => { return list.taskDone(req.body.task_id)})
-        .then(()=> {
-            List.find({user: [req.body.token]})
-            .exec((err, list)=> {
-                if (err)
-                    res.send(err)
-                else
-                    res.send(list)          
-            })
-        })
-        .catch(err =>{
-            res.status(404).send({ erreur: err })
-            next
-        } );
     }
 }

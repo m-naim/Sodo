@@ -5,27 +5,39 @@ import QuoteBox from './quoteBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
+import axios from 'axios';
+
 
 class DashBord extends Component {
   constructor(props) {
     super(props);
 
     this.state={
-      list:["cofée", "eat something", "do somme sport"]
+      todayList:["cofée", "eat something", "do somme sport"],
+      importantList:[]
     }
   }
+  componentWillMount() {
+    axios.get('/gettoday',{ headers: { token: window.localStorage.jwt }}).then(res =>
+      {
+        console.log(res.data)
+        this.setState({
+          todayList:res.data
+        })
+      })
+  }
   render() {
-    const todayTasks = this.state.list.map((i) =>
+    const todayTasks = this.state.todayList.map((i) =>
         <div className="task-card">
-          <span className="card-title"> {i} </span>
+          <span className="card-title"> {i.name} </span>
           <div className="card-bottom">
             <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>
             <button className="btn no-btn">missed</button>
           </div>
     </div> )
-    const importantTasks = this.state.list.map((i) =>
+    const importantTasks = this.state.importantList.map((i) =>
     <div className="task-card">
-      <span className="card-title"> {i} </span>
+      <span className="card-title"> {i.name} </span>
       <span className="card-title"> il te reste 5j </span>
       <div className="card-bottom">
         <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>

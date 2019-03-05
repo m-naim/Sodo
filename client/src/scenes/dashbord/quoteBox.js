@@ -23,19 +23,6 @@ class QuoteBox extends Component {
             position: 0,
             quotes: somequotes
         }
-        this.nextQuote = this.nextQuote.bind(this);
-    };
-
-    nextQuote() {
-        if (this.state.position === this.state.quotes.length - 1) {
-            this.setState({
-                position: 0
-            });
-        } else {
-            this.setState({
-                position: this.state.position + 1
-            });
-        }
     };
 
     componentDidMount() {
