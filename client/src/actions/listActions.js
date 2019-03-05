@@ -34,23 +34,3 @@ export const setListsLoading = () => {
     type: LISTS_LOADING
   };
 };
-
-export const addTask = obj => dispatch => {
-  axios.post('/addtask', obj).then(res =>
-    dispatch({
-      type: ADD_TASK,
-      payload: res.data
-    })
-  );
-};
-
-export const taskDone = obj => dispatch => {
-
-  axios.post('/taskdone', obj).then(res=>{
-    dispatch({
-      type: TASK_DONE,
-      payload: res.data
-    })
-  }
-  );
-};

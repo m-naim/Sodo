@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {  deleteList, addTask, taskDone } from '../../actions/listActions';
+import {deleteList} from '../../actions/listActions';
+import {addTask} from '../../actions/taskActions';
+import Task from './task';
 
 class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
       input: '',
-      lists:[{
-        name:'',
-        tasks:[]
+      tasks:[{
+        todo:''
       }],
     }
     this.handleDelClick = this.handleDelClick.bind(this);
@@ -29,8 +30,7 @@ class List extends Component {
   handleClick() {
     let obj={
       list_id: this.props.id,
-      index: this.props.idx,
-      todo: this.state.input,
+      name: this.state.input,
       token: window.localStorage.jwt
     }
       this.props.addTask(obj);
@@ -47,23 +47,9 @@ class List extends Component {
   }
   render() {
     
-    const listItems = this.props.lists.lists[this.props.idx].tasks.map((i) =>
-      <li key={i._id} className="list-group-item ">
-        {i.todo}
-        <div className=" float-right">
-          <button className="btn-ico grn far fa-check-circle" value={i._id} onClick={this.handleDone}/>
-          <a className="text-dark" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="btn-ico fas fa-ellipsis-v"></i>
-            </a>   
-            <div className="dropdown-menu dropdown-menu-left" aria-labelledby="alertsDropdown">
-              <a className="dropdown-item" href="#">delete</a>
-              <a className="dropdown-item" href="#">dead line</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">else</a>
-            </div>         
-        </div>
-      </li>
-    );
+    const array=this.props.tasks.filter(item => item.list.includes(this.props.id))
+    console.log(array)
+    const taskArr= array.map((i,idx) => <Task idx={idx} key={i._id} name={i.name} id={i._id} />);
     return (
       <div className="card" style={{width: "18em"}}>
         <div className="header-card">
@@ -71,7 +57,7 @@ class List extends Component {
           <button className="btn-ico snow fas fa-ellipsis-v float-right" onClick={this.handleDelClick} />
         </div>
         <div className="list-group">
-          {listItems}
+          {taskArr}
           <div className="input-group text-center">
             <button className="btn-ico snow fas fa-plus" onClick={this.handleClick} >Add</button>
             <input className='inp snow' placeholder="add new Task" type="text" value={this.state.input} onChange={this.handleChange} />
@@ -82,9 +68,9 @@ class List extends Component {
   }
 }
 const mapStateToProps = state => ({
-  lists: state.lists,
+  tasks: state.tasks.tasks,
 });
 
 export default connect(mapStateToProps,
-  {  deleteList , addTask, taskDone}
+  { deleteList , addTask}
 )(List);

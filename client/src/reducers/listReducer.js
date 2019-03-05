@@ -1,13 +1,8 @@
-import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING, ADD_TASK, TASK_DONE } from '../actions/types';
+import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING } from '../actions/types';
   
   const initialState = {
     lists:[{
       name: '',
-      tasks:[
-        {
-
-        }
-      ]
     }
     ],
     
@@ -31,17 +26,6 @@ import { GET_LISTS, ADD_LIST, DELETE_LIST, LISTS_LOADING, ADD_TASK, TASK_DONE } 
         return {
           ...state,
           lists: [...state.lists,action.payload]
-        };
-        case ADD_TASK:
-        return {
-          ...state,
-          lists: action.payload
-          
-        };
-        case TASK_DONE:
-        return {
-          ...state,
-          lists: action.payload
         };
       case LISTS_LOADING:
         return {

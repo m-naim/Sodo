@@ -5,7 +5,9 @@ import QuoteBox from './quoteBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getTasks, taskDone } from '../../actions/taskActions';
+import PropTypes from 'prop-types';
 
 
 class DashBord extends Component {
@@ -13,21 +15,15 @@ class DashBord extends Component {
     super(props);
 
     this.state={
-      todayList:["cofée", "eat something", "do somme sport"],
       importantList:[]
     }
   }
   componentWillMount() {
-    axios.get('/gettoday',{ headers: { token: window.localStorage.jwt }}).then(res =>
-      {
-        console.log(res.data)
-        this.setState({
-          todayList:res.data
-        })
-      })
+    this.props.getTasks()
   }
   render() {
-    const todayTasks = this.state.todayList.map((i) =>
+    console.log(this.props.todayList)
+    const todayTasks = this.props.todayList.tasks.map((i) =>
         <div className="task-card">
           <span className="card-title"> {i.name} </span>
           <div className="card-bottom">
@@ -35,6 +31,7 @@ class DashBord extends Component {
             <button className="btn no-btn">missed</button>
           </div>
     </div> )
+
     const importantTasks = this.state.importantList.map((i) =>
     <div className="task-card">
       <span className="card-title"> {i.name} </span>
@@ -53,7 +50,9 @@ class DashBord extends Component {
           <div id="dashbord" className="scrollbar">        
               <div id="today" >
                 <h1 className="div-title"> <i class="far fa-caret-square-right"></i> To Do Today</h1>
-                {todayTasks}
+                {
+                  todayTasks
+                }
               </div>
               <div id="important" >
                 <h1 className="div-title"> <i class="far fa-star"></i> important</h1>
@@ -71,4 +70,13 @@ class DashBord extends Component {
   }
 }
 
-export default DashBord;
+
+const mapStateToProps = state => ({
+  todayList: state.tasks
+});
+
+export default connect(
+  mapStateToProps,
+  { getTasks, taskDone }
+)(DashBord);
+

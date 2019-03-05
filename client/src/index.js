@@ -38,6 +38,7 @@ const routing = (
         <PrivateRoute  path="/calendar" component={calendar} />
         <PrivateRoute  path="/settings" component={settings} />
         <Route  path='/login' component={LoginPage} />
+        <PrivateRoute path="**" component={DashBord} />
       </div>
     </Router>
     </Provider>
