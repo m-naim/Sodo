@@ -41,5 +41,18 @@ module.exports={
                 res.status(404).send({ erreur: err })
                 next
             } );
+    },
+    taskDeadLine: (req,res,next) =>{
+        console.log(req.body.task_id)
+        task.findById(req.body.task_id)
+        .then(item =>{
+            console.log(item)
+            item.setlimite(req.body.date)
+            item.save().then(() => res.send({ success: true }))
+        })
+        .catch(err =>{
+            res.status(404).send({ erreur: err })
+            next
+        } );
     }
 }

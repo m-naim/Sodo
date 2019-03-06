@@ -36,7 +36,8 @@ taskSchema.methods.change= function(){
     this.important= !this.important
     return this
 }
-taskSchema.methods.addLimiteDAte = function(date) {
+taskSchema.methods.setlimite = function(date) {
+    console.log(date)
     this.limite=date
     return this
 }

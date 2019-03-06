@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 import { connect } from 'react-redux';
 import { getTasks, taskDone } from '../../actions/taskActions';
-import PropTypes from 'prop-types';
+import moment from 'moment';
 
 
 class DashBord extends Component {
@@ -21,10 +21,12 @@ class DashBord extends Component {
     this.props.getTasks()
   }
   render() {
-    console.log(this.props.todayList)
-    const todayTasks = this.props.todayList.tasks.map((i) =>
+    console.log(this.props.todayList.tasks)
+    const todayArr= this.props.todayList.tasks.filter(i=> 
+      i.limite && moment(i.limite).format('YYYY-MM-DD')===moment().format('YYYY-MM-DD'));
+    const todayTasks = todayArr.map((i) =>
         <div className="task-card">
-          <span className="card-title"> {i.name} </span>
+          <span className="card-title"> {i.name} {}</span>
           <div className="card-bottom">
             <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>
             <button className="btn no-btn">missed</button>
@@ -33,14 +35,14 @@ class DashBord extends Component {
 
     const importantList= this.props.todayList.tasks.filter(item => item.important==true);
     const importarray = importantList.map((i) =>
-    <div className="task-card">
-      <span className="card-title"> {i.name} </span>
-      <span className="card-title"> il te reste 5j </span>
-      <div className="card-bottom">
-        <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>
-        <button className="btn no-btn">missed</button>
-      </div>
-</div> )
+        <div className="task-card">
+          <span className="card-title"> {i.name} </span>
+          <span className="card-title"> {i.limite ? moment("20190620", "YYYYMMDD").endOf('day').fromNow() : ""} </span>
+          <div className="card-bottom">
+            <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>
+            <button className="btn no-btn">missed</button>
+          </div>
+    </div> )
 
     return (
       <div >

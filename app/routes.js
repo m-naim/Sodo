@@ -49,5 +49,8 @@ todoRoutes
 todoRoutes
           .route('/taskimportance/:task_id')
           .post(taskControler.taskImportance);
+todoRoutes
+          .route('/deadline')
+          .post(taskControler.taskDeadLine);
 
 module.exports = todoRoutes;
