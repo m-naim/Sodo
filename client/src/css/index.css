@@ -47,9 +47,7 @@ height: 85vh ;
 
 .list-group-item{
   margin: 7px 7px 7px 7px;
-  
   border-radius: 3px;
-  background-color:transparent;
 }
 .card{
   background-color: rgba(15, 15, 15, 0.2) !important;
