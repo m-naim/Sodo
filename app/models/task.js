@@ -10,6 +10,10 @@ let taskSchema=new mongoose.Schema(
         ] ,
         name: String,
         limite:Date,
+        important: {
+            type: Boolean,
+            default: false
+        }, 
         list:[
             {
                 type: mongoose.Schema.Types.ObjectId,
@@ -20,7 +24,6 @@ let taskSchema=new mongoose.Schema(
     }
 )
 taskSchema.methods.addUser = function(u) {
-    console.log(u);
     this.user.push(u)
     return this;
 }
@@ -29,5 +32,12 @@ taskSchema.methods.addList = function(l) {
     this.list.push(l)
     return this
 }
-
+taskSchema.methods.change= function(){
+    this.important= !this.important
+    return this
+}
+taskSchema.methods.addLimiteDAte = function(date) {
+    this.limite=date
+    return this
+}
 module.exports = mongoose.model('task', taskSchema);

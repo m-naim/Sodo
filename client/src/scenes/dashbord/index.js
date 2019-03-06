@@ -15,7 +15,6 @@ class DashBord extends Component {
     super(props);
 
     this.state={
-      importantList:[]
     }
   }
   componentWillMount() {
@@ -32,7 +31,8 @@ class DashBord extends Component {
           </div>
     </div> )
 
-    const importantTasks = this.state.importantList.map((i) =>
+    const importantList= this.props.todayList.tasks.filter(item => item.important==true);
+    const importarray = importantList.map((i) =>
     <div className="task-card">
       <span className="card-title"> {i.name} </span>
       <span className="card-title"> il te reste 5j </span>
@@ -56,7 +56,8 @@ class DashBord extends Component {
               </div>
               <div id="important" >
                 <h1 className="div-title"> <i class="far fa-star"></i> important</h1>
-                {importantTasks}
+                {
+                  importarray}
               </div>
             <div id="quotes">
             <h1 className="div-title"><i class="fas fa-bolt"></i> Some motivation</h1>

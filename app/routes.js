@@ -30,9 +30,8 @@ todoRoutes
 
 todoRoutes
           .route('/dellist/:id')
-          .post(listControler.delList);
-          
-  // Defined get data(index or listing) route
+          .post(listControler.delList);        
+// Defined get data(index or listing) route
 todoRoutes
           .route('/lists')
           .get(listControler.getAll);
@@ -47,5 +46,8 @@ todoRoutes
 todoRoutes
           .route('/taskdone/:task_id')
           .post(taskControler.taskDone);
+todoRoutes
+          .route('/taskimportance/:task_id')
+          .post(taskControler.taskImportance);
 
 module.exports = todoRoutes;

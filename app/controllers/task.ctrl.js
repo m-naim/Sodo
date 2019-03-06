@@ -31,4 +31,15 @@ module.exports={
                 next
             } );
     },
+    taskImportance: (req,res,next)=>{ 
+        task.findById(req.params.task_id)
+            .then(item =>{
+                item.change()
+                item.save().then(() => res.send({ success: true }))
+            })
+            .catch(err =>{
+                res.status(404).send({ erreur: err })
+                next
+            } );
+    }
 }
