@@ -7,12 +7,8 @@ import Task from './task';
 class List extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: '',
-      tasks:[{
-        todo:''
-      }],
-    }
+    this.state = { input: '' }
+    
     this.handleDelClick = this.handleDelClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -42,14 +38,13 @@ class List extends Component {
       task_id: e.target.value,
       token: window.localStorage.jwt
     }
-    console.log(taskObj)
     this.props.taskDone(taskObj);
   }
+
   render() {
     
     const array=this.props.tasks.filter(item => item.list.includes(this.props.id))
-    console.log(array)
-    const taskArr= array.map((i,idx) => <Task idx={idx} key={i._id} name={i.name} id={i._id} />);
+    const taskArr= array.map((i,idx) => <Task key={idx} name={i.name} id={i._id} params={i} />);
     return (
       <div className="card" style={{width: "18em"}}>
         <div className="header-card">

@@ -13,9 +13,10 @@ class DashBord extends Component {
     return (
         <div >
         <OptionsBar />
+        
         <SideBar />
-          <div>
-
+          <div style={{color: '#ffffff !important'}}>
+            <h1  >this page is on construction</h1>
           </div>
           <Footer />
         </div>

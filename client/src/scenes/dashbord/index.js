@@ -23,7 +23,7 @@ class DashBord extends Component {
   render() {
     console.log(this.props.todayList.tasks)
     const todayArr= this.props.todayList.tasks.filter(i=> 
-      i.limite && moment(i.limite).format('YYYY-MM-DD')===moment().format('YYYY-MM-DD'));
+      i.limite && moment(i.limite).format('YYYY-DD-MM')!==moment().format('YYYY-MM-DD'));
     const todayTasks = todayArr.map((i) =>
         <div className="task-card">
           <span className="card-title"> {i.name} {}</span>
@@ -37,7 +37,7 @@ class DashBord extends Component {
     const importarray = importantList.map((i) =>
         <div className="task-card">
           <span className="card-title"> {i.name} </span>
-          <span className="card-title"> {i.limite ? moment("20190620", "YYYYMMDD").endOf('day').fromNow() : ""} </span>
+          <span className="card-title"> {i.limite ? moment(i.limite).endOf('day').fromNow() : ""} </span>
           <div className="card-bottom">
             <button className="btn done-btn"><i class="far fa-check-circle"></i>  done</button>
             <button className="btn no-btn">missed</button>

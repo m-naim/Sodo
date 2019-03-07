@@ -15,7 +15,7 @@ class DashBord extends Component {
         <OptionsBar />
         <SideBar />
           <div>
-
+            <h1>this page is on construction</h1>
           </div>
           <Footer />
         </div>

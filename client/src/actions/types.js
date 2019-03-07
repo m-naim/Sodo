@@ -7,3 +7,4 @@ export const LISTS_LOADING = 'LISTS_LOADING';
 export const GET_TASKS = 'GET_TASKS';
 export const ADD_TASK = 'ADD_TASK';
 export const TASK_DONE = 'TASK_DONE';
+export const CHANGE_DATE ='CHANGE_DATE';

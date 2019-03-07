@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_TASK,GET_TASKS,TASK_DONE } from './types';
+import { ADD_TASK,GET_TASKS,TASK_DONE,CHANGE_DATE } from './types';
 
 export const getTasks = () => dispatch => {
   axios.get('/gettoday',{ headers: { token: window.localStorage.jwt }}).then(res =>
@@ -27,5 +27,14 @@ export const taskDone = id => dispatch => {
       payload: id
     })
   }
+  );
+};
+
+export const changedate = obj => dispatch => {
+  axios.post('/deadline', obj).then(()=>
+    dispatch({
+      type: CHANGE_DATE,
+      payload: obj
+    })
   );
 };

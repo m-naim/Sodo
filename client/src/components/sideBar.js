@@ -27,16 +27,7 @@ class SideBar extends Component {
             <span>Tasks</span>
         </Link>
         </li>
-        <li className="nav-item">
-          <Link to="/Calendar" className="nav-link">
-          <i className="fas fa-fw fa-calendar-alt"></i>
-            <span>Calendar</span></Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/Settings" className="nav-link">
-            <i className="fas fa-fw fa-cog"></i>
-            <span>Settings</span></Link>
-        </li>
+        
       </ul>
       <Footer />
       </div>

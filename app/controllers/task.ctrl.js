@@ -43,7 +43,7 @@ module.exports={
             } );
     },
     taskDeadLine: (req,res,next) =>{
-        console.log(req.body.task_id)
+        console.log(req.body)
         task.findById(req.body.task_id)
         .then(item =>{
             console.log(item)
