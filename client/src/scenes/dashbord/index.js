@@ -23,7 +23,7 @@ class DashBord extends Component {
   render() {
     console.log(this.props.todayList.tasks)
     const todayArr= this.props.todayList.tasks.filter(i=> 
-      i.limite && moment(i.limite).format('YYYY-DD-MM')!==moment().format('YYYY-MM-DD'));
+      i.limite && moment(i.limite).format('YYYY-MM-DD')===moment().format('YYYY-MM-DD'));
     const todayTasks = todayArr.map((i) =>
         <div className="task-card">
           <span className="card-title"> {i.name} {}</span>
