@@ -8,7 +8,7 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = { input: '' }
-    
+
     this.handleDelClick = this.handleDelClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -29,6 +29,7 @@ class List extends Component {
       name: this.state.input,
       token: window.localStorage.jwt
     }
+    this.setState({input:''});
       this.props.addTask(obj);
      
   }

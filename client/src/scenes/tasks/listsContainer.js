@@ -25,6 +25,7 @@ class ListsContainer extends Component {
           token: window.localStorage.jwt,
           tasks:[]
         };
+        this.setState({input:''});
         // Add item via addItem action
         this.props.addList(newItem); 
       }
