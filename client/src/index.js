@@ -5,7 +5,6 @@ import LoginPage from './scenes/login/index.jsx';
 import DashBord from './scenes/dashbord/index';
 import calendar from './scenes/calendar/index';
 import settings from './scenes/settings/index';
-import ListsContainer from './scenes/tasks/listsContainer';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -33,12 +32,10 @@ const routing = (
   <Provider store={store}>
     <Router>
       <div>
-        <PrivateRoute  exact path="/" component={DashBord} />
-        <PrivateRoute  path="/tasks" component={ListsContainer} />
+        <PrivateRoute path="/" exact component={DashBord} /> 
         <PrivateRoute  path="/calendar" component={calendar} />
         <PrivateRoute  path="/settings" component={settings} />
         <Route  path='/login' component={LoginPage} />
-        <PrivateRoute path="**" component={DashBord} />
       </div>
     </Router>
     </Provider>

@@ -8,3 +8,7 @@ export const GET_TASKS = 'GET_TASKS';
 export const ADD_TASK = 'ADD_TASK';
 export const TASK_DONE = 'TASK_DONE';
 export const CHANGE_DATE ='CHANGE_DATE';
+
+export const Display ='Display';
+
+export const DISPLAY_ADD_TASK ='DISPLAY_ADD_TASK';

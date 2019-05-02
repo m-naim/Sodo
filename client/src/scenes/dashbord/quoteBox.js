@@ -1,6 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 
 let urlQuotes = 'https://gist.githubusercontent.com/'+
@@ -8,14 +6,12 @@ let urlQuotes = 'https://gist.githubusercontent.com/'+
                 'raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
 let somequotes=[
        {
-         quote: "quote of the day",
-         author: "me"
+         quote: "",
+         author: ""
        } ];
 
 
-console.log(somequotes);
-
-class QuoteBox extends Component {
+class QuoteContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,14 +21,6 @@ class QuoteBox extends Component {
         }
     };
 
-    componentDidMount() {
-
-        $('#tweet-quote')
-        .attr('href',
-         'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' 
-         + encodeURIComponent('"' + this.state.quotes[this.state.position].text + '" -By:'
-          + this.state.quotes[this.state.position].author)); 
-    } 
 
     componentWillMount() {
         axios.get(urlQuotes)
@@ -40,6 +28,9 @@ class QuoteBox extends Component {
               console.log(res.data.quotes);
             this.setState({ quotes: res.data.quotes, monted: true });
           })
+          .catch(
+            err => console.log(err)
+          )
       }
     
 
@@ -47,9 +38,9 @@ class QuoteBox extends Component {
         var date= new Date();
         date=date.getTime()%100;
         return (
-            <div id="quote-box" >
-                <blockquote id="blockquote">
-                    <p id="text"><i className="fa fa-quote-left"> </i>
+            <div className="quote-box" >
+                <blockquote className="blockquote">
+                    <p ><i className="fa fa-quote-left"> </i>
                         {  this.state.monted?this.state.quotes[date].quote:this.state.quotes[0].quote }
                     </p>
                     <footer className="blockquote-footer">
@@ -61,4 +52,4 @@ class QuoteBox extends Component {
     };
 };
 
-export default QuoteBox;
+export default QuoteContainer;

@@ -3,6 +3,5 @@
   "name": "personal organisation App",
 
   "start_url": ".",
-  "display": "standalone",
-
+  "display": "standalone"
 }

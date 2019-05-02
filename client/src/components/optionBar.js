@@ -7,51 +7,15 @@ onLogout=()=>{
 }
   render() {
     return (
-        <nav id="nav" className="navbar navbar-expand navbar-dark bg-dark static-top">
+      <nav id="nav" className="navbar">
+        <Link className="nav-title" to="/">Ephyon</Link>
 
-        <a className="navbar-brand mr-1" href="index.html">Just Do</a>
-
-        <form className="d-none d-md-inline-block  ml-auto mr-0 mr-md-3 my-0 py-0 ">
-          <div className="input-group mt-0">
-            <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
-            <div className="input-group-append">
-              <button className="btn btn-primary" type="button">
-                <i className="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-
-
-        <ul className="navbar-nav ml-auto ml-md-0">
-          <li className="nav-item dropdown no-arrow">
-            <Link to="/Calendar" className="nav-link">
-              <i className="fas fa-fw fa-calendar-alt"></i>
-              </Link>
-          </li>
-
-          <li className="nav-item dropdown no-arrow mx-1">
-            <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fas fa-bell fa-fw"></i>
-              <span className="badge badge-danger"></span>
-            </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-            </div>
-          </li>
-          
-          <li className="nav-item dropdown no-arrow">
-            <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fas fa-user-circle fa-fw"></i>
-            </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <Link to="/settings" className="dropdown-item">Settings <i className="fas fa-fw fa-cog"></i></Link>
-              <a className="dropdown-item" href="#">Activity Log</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" onClick={this.onLogout} href="/" >Logout</a>
-            </div>
-          </li>
-        </ul>
-
+        <button className="logout" onClick={()=>{
+          window.localStorage.removeItem("jwt");
+          window.location.assign("/") }
+          }>
+           Logout
+        </button>
       </nav>
     );
   }
