@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-
+import queryString from "query-string";
 
 class LoginPage extends Component {
     constructor(props){
