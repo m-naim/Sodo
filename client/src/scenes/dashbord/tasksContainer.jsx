@@ -13,6 +13,8 @@ class TaskContainer extends Component {
       name: "something"
     }
   }
+
+  handleChangeName=(e)=>{ this.setState({name: e.target.value})}
   handleClick=()=>{ this.setState({openModal: true})}
   closeModal=()=>{ this.setState({openModal: false})}
   handelAddTask = () => {
@@ -23,7 +25,7 @@ class TaskContainer extends Component {
     })
     this.setState({ openModal: false })
   }
-  handleChangeName=(e)=>{ this.setState({name: e.target.value})}
+  
   render() {
 
     const listeTaskes = this.props.store.tasks.filter(i => i.list.includes(this.props.store.selectedList));
@@ -32,7 +34,7 @@ class TaskContainer extends Component {
       <div className="task-container">
         <div className="header-card">
           <h2>Tasks</h2>
-          <div className="fas fa-plus" onClick={this.handleClick} />
+          <div className="fas fa-plus" onClick={this.handleClick}>Ajouter Une Tache</div>
         </div>
         <div className="card-groupe scrollbar">{tasksArr}</div>
         <div className="card-bottom-add">
@@ -86,7 +88,6 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     backgroundColor       : '#36393f',
-    height                : '338px',
     width                 :  '440px',
     color                 : 'snow',
     border                : 'none',

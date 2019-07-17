@@ -7,28 +7,32 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: snow;
 }
 .login-cnt{
     display: flex;
     background-color: rgba(248, 244, 244, 0.05);
-    height: 40vh;
-    width: 50vw;
+    height: 60vh;
+    width: 90vw;
     flex-direction: column;
     align-items: center;
 }
-.login-header-cnt h1{
+.login-header {
+    height: 40vh;
+}
+.login-header h1{
     font-size: 56px;
-    margin: 5px;
+    margin: 40px;
 }
 
 .fcb-btn{
-    background-color: blue;
-    
+    background-color: #4267b2;
+    width: 280px;
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
 }
 .ggl-btn{
-    background-color: antiquewhite;
-    color: black;
+    background-color: #fff;
+    width: 280px;
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
 }
 .fcb-btn, .ggl-btn{
     padding: 7px;

@@ -24,7 +24,7 @@ module.exports = function (app, db) {
     passport.use(new FacebookStrategy({
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "https://tojustdo.herokuapp.com/auth/facebook/callback"
+      callbackURL: "http://localhost:8080/auth/facebook/callback"
     },
       function(accessToken, refreshToken, profile, cb) {
           console.log(profile)

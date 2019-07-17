@@ -1,70 +1,78 @@
 /*--------------------------------------
 ------------// Generale //--------------
 ---------------------------------------*/
+
+body,
+button,
+html,
+input,
+select,
+textarea {
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
 html {
-    position: relative;
-    min-height: 100%;
-    overflow: auto;
-    font-size: 16px;
-  }
-  
-  body {
-    height: 100%;
-    background-color: #36393f !important;
-  }
-  
-  #root {
-    display: -webkit-box;
-    display: -ms-flexbox;
-  }
-  
-  h2{
-    margin-bottom: 20px;
-  }
-  
-  
-  .active{
-    background-color: rgba(15, 15, 15, 0.2);
-    padding: 1px 10px;
-    border-radius: 5px;
-    margin-left: -10px;
-  }
-
-  .btn-ico{
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.01);
-      border: none;
-      margin: 0 5px;
-  }
-
-  .grn{
-      color: seagreen;
-  }
-
-
-  /*------------------------
-  ------Scroll--------------
-  --------------------------*/
-.scrollbar
-{
-	overflow: auto;
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  font-size: 16px;
 }
 
+body {
+  height: 100%;
+  background-color: #dfe1e6 !important;
+}
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.active {
+  background-color: rgba(15, 15, 15, 0.2);
+  padding: 1px 10px;
+  border-radius: 5px;
+  margin-left: -10px;
+}
+
+.btn-ico {
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.01);
+  border: none;
+  margin: 0 5px;
+}
+
+.grn {
+  color: seagreen;
+}
+
+/*------------------------
+  ------Scroll--------------
+  --------------------------*/
+.scrollbar {
+  overflow: auto;
+}
 
 .list-container::-webkit-scrollbar-track,
 .scrollbar::-webkit-scrollbar-track,
 .task-container::-webkit-scrollbar-track,
-.card-groupe:-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 px rgba(0,0,0,0.3);
-	border-radius: 10px;
+.card-groupe:-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .list-container::-webkit-scrollbar,
 .scrollbar::-webkit-scrollbar,
 .task-container::-webkit-scrollbar,
-.card-groupe::-webkit-scrollbar
-{
+.card-groupe::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   border-radius: 10px;
@@ -73,29 +81,25 @@ html {
 .list-container::-webkit-scrollbar-thumb,
 .scrollbar::-webkit-scrollbar-thumb,
 .task-container::-webkit-scrollbar-thumb,
-.card-groupe::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-color: rgb(238, 43, 17);
+.card-groupe::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(238, 43, 17);
 }
 
-
-.navbar{
+.navbar {
   display: flex;
-  
-  height: 3rem ;
-  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
+  height: 3rem;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.nav-title{
+.nav-title {
   color: rgb(194, 53, 53);
-  font-size: 1.25rem;
+  font-size: 2.2rem;
   padding: 20px;
 }
 
-.logout{
+.logout {
   border: none;
   box-shadow: none;
   background: none;
@@ -104,16 +108,14 @@ html {
   padding: 5px;
   margin-right: 10px;
 }
-.logout:hover{
-  
+.logout:hover {
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-
 /* inputes */
 .modal-body input,
-.list-container .card-groupe input{
+.list-container .card-groupe input {
   background-color: rgba(0, 0, 0, 0.2);
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   height: 28px;
@@ -124,18 +126,18 @@ html {
   margin-left: 5px;
 }
 .modal-body input:hover,
-.list-container .card-groupe input{
+.list-container .card-groupe input {
   border-color: rgba(0, 0, 0, 0.8);
 }
 .modal-body input:focus,
-.list-container .card-groupe input{
+.list-container .card-groupe input {
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   border-color: rgb(194, 53, 53);
   border-radius: 5px;
   outline: 5px;
-} 
+}
 
-.modal-valid{
+.modal-valid {
   background-color: rgb(194, 53, 53);
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 4px;
@@ -143,16 +145,22 @@ html {
   padding: 8px;
 }
 
-.modal-header , .modal-body , .modal-foot{
+.modal-header,
+.modal-body,
+.modal-foot {
   margin: 0;
   padding: 20px;
 }
-.modal-foot{background-color: rgba(0, 0, 0, 0.2)}
-.modal-header h4, .modal-body h5, .modal-foot h5{
+.modal-foot {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal-header h4,
+.modal-body h5,
+.modal-foot h5 {
   margin: 8px;
 }
 
-.MuiInputBase-input-28{
+.MuiInputBase-input-28 {
   margin: 0;
   padding: 2px 2px 2px !important;
 }

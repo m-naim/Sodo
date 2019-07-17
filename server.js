@@ -48,9 +48,9 @@ app.use( session );
         console.log('Successful database connection');
         auth(app, db);
         app.use('/',routes);
-
-        // ... other app.use middleware 
-        if(process.env.ENV==='production'){
+        // console.log({1:process.env.env})
+        // ... other app.use middleware  
+        if(process.env.node_env==='production'){
           app.use(express.static(path.join(__dirname, "client", "build")))
           app.get("*", (req, res) => {
           console.log('port: '+process.env.PORT);
