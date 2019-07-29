@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import OptionsBar from "../../components/optionBar";
+import OptionsBar from "../../components/optionBar.js";
 import QuoteBox from "./quoteBox";
 import { connect } from "react-redux";
 import { getTasks, taskDone } from "../../actions/taskActions";
@@ -28,38 +28,43 @@ class DashBord extends Component {
 
     return (
       <div>
-        <div className="dashbord">
-          <div className="side-bar">
-            <OptionsBar />
-            <div className="sidebar-user">
-              <img
-                src="https://cdn.pixabay.com/photo/2016/03/31/19/58/avatar-1295429_960_720.png"
-                alt="avatar"
-                width="50px"
-                height="50px"
-              />
-              <div className="sidebar-user-name">User Name</div>
+        <OptionsBar />
 
+        <div className="dashbord">
+          <div className="container">
+            <div className="focus">
+              <h1>your main focus today</h1>
+            </div>
+
+            <div className="mid-container">
+              <ListsContainer />
+              <TaskContainer />
+            </div>
+          </div>
+
+          <div className="info-container">
+            <div className="info-container-stats">
+              <h1>Stats</h1>
               <div>
-                <i className="fas fa-angle-double-down" />
+                <p>Done</p>
+                <span>today 0 </span>
+                <span>week 0 </span>
+                <span>month 0 </span>
+              </div>
+              <div>
+                <p>To do</p>
+                <span>today 0 </span>
+                <span>week 0 </span>
+                <span>month 0 </span>
               </div>
             </div>
-            <div className="sidebar-listes">
-              <p>Lists</p>
-              <p>Important tasks</p>
-              <p>Tasks for today</p>
-            </div>
-            <QuoteBox />
-            <div className="sidebar-sign">
-              made with <span className="haert">♥ </span> by m-naim
-            </div>
           </div>
-          <ListsContainer />
 
-          <div className="side">
-            <TaskContainer />
-          </div>
           {this.props.todayList.displayAddModal ? <AddModal /> : null}
+        </div>
+
+        <div className="sidebar-sign">
+          made with <span className="haert">♥ </span> by m-naim
         </div>
       </div>
     );

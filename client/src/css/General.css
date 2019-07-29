@@ -24,7 +24,6 @@ html {
 
 body {
   height: 100%;
-  background-color: #dfe1e6 !important;
 }
 
 #root {
@@ -32,8 +31,15 @@ body {
   display: -ms-flexbox;
 }
 
-h2 {
-  margin-bottom: 20px;
+h1,
+h2,
+h3,
+h4 {
+  font-size: 1rem;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .active {
@@ -95,18 +101,17 @@ h2 {
 
 .nav-title {
   color: rgb(194, 53, 53);
-  font-size: 2.2rem;
-  padding: 20px;
+  font-size: 1.6rem;
+  padding: 5px;
+  margin-left: 50px;
 }
 
 .logout {
   border: none;
   box-shadow: none;
   background: none;
-  color: aliceblue;
   border-radius: 5px;
-  padding: 5px;
-  margin-right: 10px;
+  margin-top: 10px;
 }
 .logout:hover {
   margin-right: 10px;
@@ -116,14 +121,12 @@ h2 {
 /* inputes */
 .modal-body input,
 .list-container .card-groupe input {
-  background-color: rgba(0, 0, 0, 0.2);
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   height: 28px;
   width: 318px;
-  color: snow;
   padding: 5px;
   border-radius: 5px;
-  margin-left: 5px;
+  margin: 5px;
 }
 .modal-body input:hover,
 .list-container .card-groupe input {
@@ -163,4 +166,20 @@ h2 {
 .MuiInputBase-input-28 {
   margin: 0;
   padding: 2px 2px 2px !important;
+}
+
+/* js */
+.js-drop-down {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  padding: 15px;
+  box-shadow: 2px 2px 2px rgba(9, 30, 66, 0.25);
+  z-index: 1;
+  border-radius: 2px;
+  border: 1px solid rgba(9, 30, 66, 0.25);
+}
+
+.sidebar-user:hover .js-drop-down {
+  display: block;
 }
