@@ -24,13 +24,17 @@ class Task extends Component {
     console.log("dateLimite", dateLimite);
     return (
       <div key={this.props.id} className="task-group-item ">
-        <span className="task-name">{this.props.name}</span>
-        <div className="control">
+        <div className="info">
+          <span className="task-name">{this.props.name}</span>
           <div className="time-badge">
-            {this.props.params.limite
-              ? dateLimite.getDay() + "-" + (dateLimite.getMonth() + 1)
-              : null}
+            07/07/2019
+            {/* {this.props.params.limite
+              ? dateLimite.getDay() + "/" + (dateLimite.getMonth() + 1)
+              : null} */}
           </div>
+        </div>
+
+        <div className="control">
           <button
             className="btn-ico grn far fa-check-circle"
             onClick={this.handleDone}

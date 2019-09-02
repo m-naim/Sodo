@@ -61,12 +61,13 @@
 .task-group-item,
 .list-group-item {
   margin: 1px 7px 1px 7px;
-  line-height: 32px;
   padding: 5px;
   box-shadow: 0 0.5px 0 rgba(9, 30, 66, 0.25);
-  width: 20vw;
 }
 .task-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   background-color: #fff;
   border-radius: 5px;
   border: 0.5px solid rgba(9, 30, 66, 0.25);
@@ -78,12 +79,10 @@
 .list-group-item {
   display: flex;
   flex-direction: row;
+  width: 20vw;
+  line-height: 32px;
 }
-.task-group-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
 .card,
 .list-container {
   display: flex;
@@ -205,11 +204,12 @@
 }
 
 .btn-ico {
-  font-size: 20px;
-  height: 32px;
-  width: 32px;
+  font-size: 16px;
+  height: 18px;
+  width: 18px;
   color: #36393f;
   cursor: pointer;
+  margin: 2px;
 }
 .btn-ico:hover {
   background-color: #89898a98;
