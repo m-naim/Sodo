@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { taskDone, changedate } from "../../actions/taskActions";
-import { DatePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
-import MomentUtils from "@date-io/moment";
 
 class Task extends Component {
   constructor(props) {
@@ -24,24 +22,25 @@ class Task extends Component {
     console.log("dateLimite", dateLimite);
     return (
       <div key={this.props.id} className="task-group-item ">
-        <div className="info">
-          <span className="task-name">{this.props.name}</span>
-          <div className="time-badge">
+        <div className="control">
+        <div className="time-badge">
             07/07/2019
             {/* {this.props.params.limite
               ? dateLimite.getDay() + "/" + (dateLimite.getMonth() + 1)
               : null} */}
           </div>
+          <button class="btn-ico fas fa-ellipsis-v " type="button" />
         </div>
-
-        <div className="control">
-          <button
+        <div className="info">
+        <button
             className="btn-ico grn far fa-check-circle"
             onClick={this.handleDone}
           />
-          <button className="btn-ico far fa-star" />
-          <button class="btn-ico fas fa-ellipsis-v " type="button" />
+          <span className="task-name">{this.props.name}</span>
+          
         </div>
+
+        
       </div>
     );
   }

@@ -36,8 +36,8 @@ class List extends Component {
       : (listClass = "list-group-item ");
 
     return (
-      <div key={this.props.id} className={listClass}>
-        <span className="task-name" onClick={this.handleDisplay}>
+      <div key={this.props.id} className={listClass} onClick={this.handleDisplay}>
+        <span className="task-name" >
           {this.props.name}
         </span>
       </div>

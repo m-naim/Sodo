@@ -34,6 +34,8 @@ class ListsContainer extends Component {
   };
 
   render() {
+    console.log(this.props);
+    
     const listsArr = this.props.lists.lists.map((i, k) => (
       <List key={k} name={i.name} id={i._id} del={this.props.deleteList} />
     ));
