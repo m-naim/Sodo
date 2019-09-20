@@ -30,7 +30,7 @@ class LoginPage extends Component {
           <div className="login-cnt">
             <h2>Login here</h2>
             <div className="fcb-btn">
-              <a href="http://localhost:8080/auth/facebook">
+              <a href="/auth/facebook">
                 <i className="fab fa-facebook-f" />
                 <span className="fcb-btn-span">Sign in with Facebook</span>
               </a>
