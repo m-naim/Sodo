@@ -15,7 +15,7 @@ passport.authenticate('facebook', { failureRedirect: '/login' }),
     // Successful authentication, redirect home.
     var token = req.user._id;
     console.log(token);
-    if(process.env.ENV==='production'){
+    if(process.env.node_env==='production'){
       res.redirect("/login?token=" + token);
     }
     else{
