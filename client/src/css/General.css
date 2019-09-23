@@ -15,6 +15,7 @@ textarea {
   line-height: 20px;
   font-weight: 400;
 }
+
 html {
   position: relative;
   min-height: 100%;
@@ -79,6 +80,7 @@ h4 {
   border-radius: 5px;
   margin-top: 10px;
 }
+
 .logout:hover {
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -94,10 +96,12 @@ h4 {
   border-radius: 5px;
   margin: 5px;
 }
+
 .modal-body input:hover,
 .list-container .card-groupe input {
   border-color: rgba(0, 0, 0, 0.8);
 }
+
 .modal-body input:focus,
 .list-container .card-groupe input {
   border: 0.5px solid rgba(0, 0, 0, 0.5);
@@ -111,7 +115,14 @@ h4 {
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   color: snow;
-  padding: 8px;
+  padding: 10px 16px;
+}
+
+.modal-cancel {
+  background-color: rgb(248, 247, 247);
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 10px 16px;
 }
 
 .modal-header,
@@ -120,9 +131,13 @@ h4 {
   margin: 0;
   padding: 20px;
 }
+
 .modal-foot {
   background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-evenly;
 }
+
 .modal-header h4,
 .modal-body h5,
 .modal-foot h5 {
@@ -136,6 +151,7 @@ h4 {
 
 /* js */
 .js-drop-down {
+  background-color: #ffffff;
   display: none;
   position: absolute;
   min-width: 160px;
@@ -146,6 +162,6 @@ h4 {
   border: 1px solid rgba(9, 30, 66, 0.25);
 }
 
-.sidebar-user:hover .js-drop-down {
+.dropdown-active {
   display: block;
 }

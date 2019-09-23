@@ -19,7 +19,7 @@ class List extends Component {
   render() {
     let listClass = "list-group-item ";
 
-    this.props.tasks.selectedList === this.props.id
+    this.props.tasks.selectedList.id === this.props.id
       ? (listClass += "active")
       : (listClass = "list-group-item ");
 

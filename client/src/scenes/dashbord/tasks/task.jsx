@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { taskDone, changedate } from "../../../actions/taskActions";
+import { taskDone } from "../../../actions/taskActions";
 
 class Task extends Component {
   constructor(props) {
     super(props);
-    this.state = { input: "", selectedDate: new Date() };
+    this.state = { input: "" };
   }
   handleChange = e => this.setState({ input: e.target.value });
   handleDone = () => this.props.taskDone(this.props.id);
@@ -23,7 +23,7 @@ class Task extends Component {
     return (
       <div key={this.props.id} className="task-group-item ">
         <div className="control">
-        <div className="time-badge">
+          <div className="time-badge">
             07/07/2019
             {/* {this.props.params.limite
               ? dateLimite.getDay() + "/" + (dateLimite.getMonth() + 1)
@@ -32,15 +32,15 @@ class Task extends Component {
           <button class="btn-ico fas fa-ellipsis-v " type="button" />
         </div>
         <div className="info">
-        <button
+          <button
             className="btn-ico grn far fa-check-circle"
             onClick={this.handleDone}
           />
           <span className="task-name">{this.props.name}</span>
-          
+
         </div>
 
-        
+
       </div>
     );
   }
@@ -52,5 +52,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { taskDone, changedate }
+  { taskDone }
 )(Task);

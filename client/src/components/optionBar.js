@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 
 class OptionsBar extends Component {
   onLogout = () => {
@@ -8,13 +8,16 @@ class OptionsBar extends Component {
   };
 
   handleClick = () => {
-    console.log("clk");
+    const list = document.getElementById("nav-drop");
+    list.classList.remove("dropdown-active");
+    void list.offsetWidth;
+    list.classList.add("dropdown-active");
   };
   render() {
     return (
       <nav id="nav" className="side-bar">
         <div>
-        <img
+          <img
             src="https://cdn.pixabay.com/photo/2013/07/12/19/33/panda-154984_960_720.png"
             alt="avatar"
             width="32px"
@@ -22,11 +25,11 @@ class OptionsBar extends Component {
           />
           <span>user</span>
         </div>
-        
+
         <div className="sidebar-user">
-          
-          <button class="btn-ico fas fa-ellipsis-v " type="button" onClick={this.handleClick}/>
-          <div className="js-drop-down">
+
+          <button class="btn-ico fas fa-ellipsis-v " type="button" onClick={this.handleClick} />
+          <div id="nav-drop" className="js-drop-down">
             <div>User name</div>
             <button className="logout" onClick={this.onLogout}>
               Logout

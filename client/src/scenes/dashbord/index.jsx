@@ -14,15 +14,15 @@ class DashBord extends Component {
   render() {
     return (
       <div>
-        
+
 
         <div className="dashbord">
-              <div className="left-side">
-              <OptionsBar />
-              <ListsContainer />
-              </div>
-              
-              <TaskContainer />
+          <div className="left-side">
+            <OptionsBar />
+            <ListsContainer />
+          </div>
+
+          <TaskContainer />
 
           {this.props.todayList.displayAddModal ? <AddModal /> : null}
         </div>
