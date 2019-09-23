@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import OptionsBar from "../../components/optionBar.js";
 import { connect } from "react-redux";
 import { getTasks, taskDone } from "../../actions/taskActions";
-import ListsContainer from "./listsContainer";
-import TaskContainer from "./tasksContainer.jsx";
-import AddModal from "./addModal";
+import ListsContainer from "./listes/index";
+import TaskContainer from "./tasks/index";
+import AddModal from "./tasks/addModal";
 import "./dashbord.css";
 
 class DashBord extends Component {
@@ -14,11 +14,14 @@ class DashBord extends Component {
   render() {
     return (
       <div>
-        <OptionsBar />
+        
 
         <div className="dashbord">
-      
+              <div className="left-side">
+              <OptionsBar />
               <ListsContainer />
+              </div>
+              
               <TaskContainer />
 
           {this.props.todayList.displayAddModal ? <AddModal /> : null}

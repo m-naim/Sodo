@@ -13,18 +13,19 @@ class OptionsBar extends Component {
   render() {
     return (
       <nav id="nav" className="side-bar">
-        <Link className="nav-title" to="/">
-          Ephyon
-        </Link>
-
-        <div className="sidebar-user">
-          <img
+        <div>
+        <img
             src="https://cdn.pixabay.com/photo/2013/07/12/19/33/panda-154984_960_720.png"
             alt="avatar"
             width="32px"
             height="32px"
-            onClick={this.handleClick}
           />
+          <span>user</span>
+        </div>
+        
+        <div className="sidebar-user">
+          
+          <button class="btn-ico fas fa-ellipsis-v " type="button" onClick={this.handleClick}/>
           <div className="js-drop-down">
             <div>User name</div>
             <button className="logout" onClick={this.onLogout}>

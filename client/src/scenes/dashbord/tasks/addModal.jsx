@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { displayAddTask } from '../../actions/taskActions';
+import { displayAddTask } from '../../../actions/taskActions';
 
 
 class AddModal extends Component { 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Task from "./task";
 import { connect } from "react-redux";
-import { displayAddTask, addTask } from "../../actions/taskActions";
+import { displayAddTask, addTask } from "../../../actions/taskActions";
 import Modal from "react-modal";
 
 class TaskContainer extends Component {
@@ -45,9 +45,10 @@ class TaskContainer extends Component {
           <div className="fas fa-plus" onClick={this.handleClick}>
             Ajouter Une Tache
           </div>
+          <button class="btn-ico fas fa-ellipsis-v " type="button" />
         </div>
-        <div className="card-groupe scrollbar">{tasksArr}</div>
-        <div className="card-bottom-add" />
+        <div id="tasks" className="card-groupe">{tasksArr}</div>
+   
         <Modal
           isOpen={this.state.openModal}
           // onAfterOpen={this.afterOpenModal}
@@ -92,7 +93,8 @@ class TaskContainer extends Component {
 
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0,0,0,0.5)"
+    backgroundColor: "rgba(0,0,0,0.5)",
+    zIndex:1000,
   },
   content: {
     top: "50%",
@@ -108,7 +110,8 @@ const customStyles = {
     padding: "0",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    
   }
 };
 

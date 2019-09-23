@@ -42,13 +42,6 @@ h4 {
   margin-bottom: 5px;
 }
 
-.active {
-  background-color: rgba(15, 15, 15, 0.2);
-  padding: 1px 10px;
-  border-radius: 5px;
-  margin-left: -10px;
-}
-
 .btn-ico {
   padding: 0;
   background-color: rgba(255, 255, 255, 0.01);
@@ -63,34 +56,7 @@ h4 {
 /*------------------------
   ------Scroll--------------
   --------------------------*/
-.scrollbar {
-  overflow: auto;
-}
 
-.list-container::-webkit-scrollbar-track,
-.scrollbar::-webkit-scrollbar-track,
-.task-container::-webkit-scrollbar-track,
-.card-groupe:-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
-
-.list-container::-webkit-scrollbar,
-.scrollbar::-webkit-scrollbar,
-.task-container::-webkit-scrollbar,
-.card-groupe::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  border-radius: 10px;
-}
-
-.list-container::-webkit-scrollbar-thumb,
-.scrollbar::-webkit-scrollbar-thumb,
-.task-container::-webkit-scrollbar-thumb,
-.card-groupe::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: rgb(238, 43, 17);
-}
 
 .navbar {
   display: flex;

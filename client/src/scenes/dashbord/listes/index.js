@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import List from "./list";
 import { connect } from "react-redux";
-import { getLists, deleteList, addList } from "../../actions/listActions";
+import { getLists, deleteList, addList } from "../../../actions/listActions";
 import PropTypes from "prop-types";
 
 class ListsContainer extends Component {
@@ -48,7 +48,7 @@ class ListsContainer extends Component {
           </div>
         </div>
 
-        <div className="card-groupe scrollbar">
+        <div className="card-groupe">
           {this.state.input ? (
             <input
               type="text"

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { taskDone, changedate } from "../../actions/taskActions";
+import { taskDone, changedate } from "../../../actions/taskActions";
 
 class Task extends Component {
   constructor(props) {
