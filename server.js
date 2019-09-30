@@ -1,17 +1,15 @@
-const express = require('express');
-// ... other imports 
-const path = require("path")
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const routes = require('./app/routes.js');
-const auth = require('./config/passport');
-//require auth modules
-var passport = require('passport');
+const auth = require('./config/passport'),
+  bodyParser = require('body-parser'),
+  cors = require('cors'),
+  express = require('express');
+
 var expressSession = require('express-session');
+const mongoose = require('mongoose'),
+  mongo = require('mongodb').MongoClient;
 
-const mongo = require('mongodb').MongoClient;
-
+var passport = require('passport');
+const path = require("path"),
+  routes = require('./app/routes.js');
 
 require('dotenv').config();
 
@@ -21,13 +19,13 @@ require('dotenv').config();
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true
-}).then(
-  () => {
-    console.log('Database is connected')
-  },
-  err => {
-    console.log('Can not connect to the database' + err)
-  }
+}).
+then(
+  () =>
+  console.log('Database is connected'),
+  err =>
+  console.log('Can not connect to the database' + err)
+
 );
 
 
@@ -55,10 +53,10 @@ mongo.connect(process.env.DATABASE_URL, (err, db) => {
     console.log('Database error: ' + err);
   } else {
     console.log('Successful database connection');
+
     auth(passport, db);
     app.use('/', routes);
-    // console.log({1:process.env.env})
-    // ... other app.use middleware  
+
     if (process.env.node_env === 'production') {
       app.use(express.static(path.join(__dirname, "client", "build")))
       app.get("*", (req, res) => {

@@ -25,12 +25,12 @@ module.exports = {
             })
     },
     delList: (req, res, next) => {
-        console.log(req.params.id);
 
-        List.findById(req.params.id)
-            .then(item => item.remove().then(() => res.send({
-                success: true
-            })))
+        List.findById(req.params.id).
+        then(item => item.remove().then(
+                () => res.send({
+                    success: true
+                })))
             .catch(err => {
                 res.status(404).send({
                     erreur: err

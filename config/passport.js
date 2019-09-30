@@ -30,9 +30,10 @@ module.exports = function (passport, db) {
 					$setOnInsert: {
 						id: profile.id,
 						name: profile.displayName || 'Anonymous',
-						email: profile.email || 'No public email',
+						email: profile.emails[0].value || 'No public email',
 						created_on: new Date(),
-						provider: profile.provider || ''
+						provider: profile.provider || '',
+						photo: profile.photos[0].value || ''
 					},
 					$set: {
 						last_login: new Date()
@@ -64,9 +65,10 @@ module.exports = function (passport, db) {
 					$setOnInsert: {
 						id: profile.id,
 						name: profile.displayName || 'Anonymous',
-						email: profile.email || 'No public email',
+						email: profile.emails[0].value || 'No public email',
 						created_on: new Date(),
-						provider: profile.provider || ''
+						provider: profile.provider || '',
+						photo: profile.photos[0].value || ''
 					},
 					$set: {
 						last_login: new Date()
