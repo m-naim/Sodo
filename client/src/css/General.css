@@ -47,6 +47,7 @@ h4 {
   padding: 0;
   background-color: rgba(255, 255, 255, 0.01);
   border: none;
+  border-radius: 50%;
   margin: 0 5px;
 }
 
@@ -90,11 +91,9 @@ h4 {
 .modal-body input,
 .list-container .card-groupe input {
   border: 0.5px solid rgba(0, 0, 0, 0.5);
-  height: 28px;
-  width: 318px;
   padding: 5px;
   border-radius: 5px;
-  margin: 5px;
+
 }
 
 .modal-body input:hover,
@@ -152,6 +151,7 @@ h4 {
 /* js */
 .js-drop-down {
   background-color: #ffffff;
+  color: #172b4d !important;
   display: none;
   position: absolute;
   min-width: 160px;
@@ -160,6 +160,15 @@ h4 {
   z-index: 1;
   border-radius: 2px;
   border: 1px solid rgba(9, 30, 66, 0.25);
+}
+
+.js-drop-down div {
+  z-index: 2;
+}
+
+.js-drop-down button {
+  cursor: pointer;
+  z-index: 100;
 }
 
 .dropdown-active {

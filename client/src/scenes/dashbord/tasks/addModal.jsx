@@ -7,11 +7,14 @@ class AddModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "something"
+      name: ""
     };
   }
   handleValidation = () => { this.props.displayAddTask(false) }
 
+  handleChangeName = e => {
+    this.setState({ name: e.target.value });
+  };
   handelAddTask = () => {
     this.props.addTask({
       name: this.state.name,
@@ -19,6 +22,7 @@ class AddModal extends Component {
       list_id: this.props.store.selectedList.id
     });
     this.props.close();
+    this.setState({ name: "" })
   };
 
   render() {
@@ -38,8 +42,10 @@ class AddModal extends Component {
             <h5>Task name</h5>
             <input
               type="text"
+              placeholder="entre the task name"
               value={this.state.name}
               onChange={this.handleChangeName}
+              autoFocus
             />
           </div>
           <div>

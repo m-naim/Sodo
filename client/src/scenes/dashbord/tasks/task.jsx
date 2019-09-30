@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { taskDone } from "../../../actions/taskActions";
 
+import { DropDownbutton } from "../../../components/dropDownbutton";
+import { ItemDropDown } from "./itemDropDown"
+
 class Task extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +22,6 @@ class Task extends Component {
   };
   render() {
     let dateLimite = new Date(this.props.params.limite);
-    console.log("dateLimite", dateLimite);
     return (
       <div key={this.props.id} className="task-group-item ">
         <div className="control">
@@ -29,7 +31,7 @@ class Task extends Component {
               ? dateLimite.getDay() + "/" + (dateLimite.getMonth() + 1)
               : null} */}
           </div>
-          <button class="btn-ico fas fa-ellipsis-v " type="button" />
+          <DropDownbutton id={"item" + this.props.id} Component={ItemDropDown} />
         </div>
         <div className="info">
           <button

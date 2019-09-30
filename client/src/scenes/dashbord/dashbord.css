@@ -101,7 +101,7 @@
   margin-bottom: 3px;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-between;
 }
 
 .task-group-item .info {
@@ -184,6 +184,7 @@
 
 .task-name {
   flex-wrap: wrap;
+  line-height: 30px;
 }
 
 .quote-box {
@@ -237,9 +238,8 @@
 .btn-ico {
   color: #36393f;
   cursor: pointer;
-  margin: 2px;
-  height: 24px;
-  width: 24px;
+  height: 26px;
+  width: 26px;
 }
 
 .btn-ico:hover {
@@ -302,4 +302,12 @@
 
 .fa-check-circle {
   font-size: 24px !important;
+}
+
+.list-group-item .far {
+  display: none;
+}
+
+.list-group-item:hover .far {
+  display: inline-block;
 }

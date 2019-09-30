@@ -1,18 +1,10 @@
 import React, { Component } from "react";
+import { DropDownbutton } from "./dropDownbutton";
+import { NavDropDown } from "./navDropDown"
 
 
 class OptionsBar extends Component {
-  onLogout = () => {
-    window.localStorage.removeItem("jwt");
-    window.location.assign("/");
-  };
 
-  handleClick = () => {
-    const list = document.getElementById("nav-drop");
-    list.classList.remove("dropdown-active");
-    void list.offsetWidth;
-    list.classList.add("dropdown-active");
-  };
   render() {
     return (
       <nav id="nav" className="side-bar">
@@ -27,18 +19,12 @@ class OptionsBar extends Component {
         </div>
 
         <div className="sidebar-user">
-
-          <button class="btn-ico fas fa-ellipsis-v " type="button" onClick={this.handleClick} />
-          <div id="nav-drop" className="js-drop-down">
-            <div>User name</div>
-            <button className="logout" onClick={this.onLogout}>
-              Logout
-            </button>
-          </div>
+          <DropDownbutton id="nav-drop" Component={NavDropDown} />
         </div>
       </nav>
     );
   }
 }
+
 
 export default OptionsBar;

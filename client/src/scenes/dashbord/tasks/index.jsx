@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { displayAddTask, addTask } from "../../../actions/taskActions";
 
 import Task from "./task";
-import AddModal from './addModal'
+import AddModal from './addModal';
+
 
 
 class TaskContainer extends Component {
@@ -15,9 +16,6 @@ class TaskContainer extends Component {
     };
   }
 
-  handleChangeName = e => {
-    this.setState({ name: e.target.value });
-  };
   handleOpenModal = () => {
     this.setState({ openModal: true });
   };
@@ -28,22 +26,25 @@ class TaskContainer extends Component {
 
   render() {
     const { tasks, selectedList } = this.props.store;
+    console.log(tasks);
+
     const listeTaskes = tasks.filter(i =>
       i.list.includes(selectedList.id)
     );
     const tasksArr = listeTaskes.map((i, idx) => (
       <Task key={i._id} name={i.name} id={i._id} params={i} />
     ));
-    console.log(selectedList)
     return (
       (selectedList.id === '') ? <div id="tasks"></div> :
         <div id="task-container" className="task-container">
           <div className="header-card">
             <h2>{selectedList.name}</h2>
-            <div className="fas fa-plus" onClick={this.handleOpenModal}>
-              Ajouter Une Tache
-          </div>
-            <button class="btn-ico fas fa-ellipsis-v " type="button" />
+
+            <button
+              title="Ajouter Une Tache"
+              className="btn-ico fas fa-plus"
+              onClick={this.handleOpenModal}
+            />
           </div>
           <div id="tasks" className="card-groupe">{tasksArr}</div>
           <AddModal open={this.state.openModal} close={this.closeModal} />

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteList } from "../../../actions/listActions";
 import { displayList } from "../../../actions/taskActions";
 
+
 class List extends Component {
 
   handleDisplay = () => {
@@ -28,6 +29,19 @@ class List extends Component {
         <span className="task-name" >
           {this.props.name}
         </span>
+        <div className="">
+          <button
+            title="Delete Liste"
+            className="btn-ico far fa-trash-alt"
+            onClick={() => this.props.deleteList(this.props.id)}
+          />
+          <button
+            title="Edit Liste"
+            className="btn-ico far far fa-edit"
+            onClick={this.handleDone}
+          />
+        </div>
+
       </div>
     );
   }
