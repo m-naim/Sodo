@@ -23,6 +23,7 @@ module.exports = function (passport, db) {
 			callbackURL: "https://ephyon.herokuapp.com/auth/facebook/callback" //"https://ephyon.herokuapp.com/auth/facebook/callback"
 		},
 		function (accessToken, refreshToken, profile, cb) {
+			console.log(profile);
 
 			db.collection('users').findAndModify({
 					id: profile.id
@@ -30,10 +31,10 @@ module.exports = function (passport, db) {
 					$setOnInsert: {
 						id: profile.id,
 						name: profile.displayName || 'Anonymous',
-						email: profile.emails[0].value || 'No public email',
+						email: profile.emails || 'No public email',
 						created_on: new Date(),
 						provider: profile.provider || '',
-						photo: profile.photos[0].value || ''
+						photo: profile.photos || ''
 					},
 					$set: {
 						last_login: new Date()
@@ -58,17 +59,17 @@ module.exports = function (passport, db) {
 			callbackURL: "https://ephyon.herokuapp.com/auth/google/callback"
 		},
 		function (accessToken, refreshToken, profile, cb) {
-
+			console.log(profile);
 			db.collection('users').findAndModify({
 					id: profile.id
 				}, {}, {
 					$setOnInsert: {
 						id: profile.id,
 						name: profile.displayName || 'Anonymous',
-						email: profile.emails[0].value || 'No public email',
+						email: profile.emails || 'No public email',
 						created_on: new Date(),
 						provider: profile.provider || '',
-						photo: profile.photos[0].value || ''
+						photo: profile.photos || ''
 					},
 					$set: {
 						last_login: new Date()
