@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { taskDone } from "../../../actions/taskActions";
 
-import { DropDownbutton } from "../../../components/dropDownbutton";
+import DropDownbutton from "../../../components/dropDownbutton";
 import { ItemDropDown } from "./itemDropDown"
 
 class Task extends Component {

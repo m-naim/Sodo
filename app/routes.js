@@ -8,7 +8,7 @@ const todoRoutes = express.Router();
 //auth routes
 todoRoutes.get('/auth/facebook',
   passport.authenticate("facebook", {
-    scope: "email"
+    scope: ['public_profile', 'email']
   }));
 
 todoRoutes.get('/auth/facebook/callback',

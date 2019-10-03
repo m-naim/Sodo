@@ -7,9 +7,12 @@ let logOut = () => {
     window.location.assign("/");
 };
 
-export const NavDropDown = ({ id }) => {
+export const NavDropDown = ({ id, active }) => {
     return (
-        <div id={id} className="js-drop-down">
+        <div
+            id={id}
+            className={(active) ? "js-drop-down dropdown-active" : "js-drop-down "}
+        >
             <div>User name</div>
             <button className="logout" onClick={() => logOut()} >
                 Logout
