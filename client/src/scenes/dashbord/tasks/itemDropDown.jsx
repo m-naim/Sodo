@@ -6,10 +6,8 @@ export const ItemDropDown = ({ id, active }) => {
             id={id}
             className={(active) ? "js-drop-down dropdown-active" : "js-drop-down "}
         >
-            <div>User name</div>
-            <button className="logout" >
-                Logout
-          </button>
+            <div>Delete</div>
+            <div>Edite</div>
         </div>
     );
 };
