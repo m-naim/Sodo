@@ -1,0 +1,39 @@
+@import url('../../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('./General.css');
+
+
+
+body {
+  margin: 0; padding: 0;
+  font-family: 'Raleway';
+}
+
+
+/*--------------------------------------
+------------// Footer //--------------
+---------------------------------------*/
+.sticky-footer{
+  transform: translateY(+100%);
+    display: inline-block;
+    color: azure;
+}
+.sticky-footer .fa-github-square{
+  color: snow;
+}
+
+
+
+.snow{
+  color: snow;
+}
+
+.btn-pad{
+  padding: 5px 5px !important;
+}
+
+.nav-width{
+  width: 150px;
+}
+
+
