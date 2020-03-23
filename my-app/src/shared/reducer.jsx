@@ -1,8 +1,18 @@
+
+
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'ADD_TASK': {
-            console.log(action.payload)
-        }
+        case 'TOGLE_DONE':
+            return {
+                ...state,
+                tasks: toggleDone(state.tasks, action.payload)
+            }
+        case 'ADD_TASK':
+            return {
+                ...state,
+                tasks: [...state.tasks, action.payload]
+            }
+
         case 'SELECT_LIST': {
             console.log(action)
             return {
@@ -10,9 +20,38 @@ export const reducer = (state, action) => {
                 selectedList: action.payload
             }
         }
+        case 'ADD_LIST':
+            return {
+                ...state,
+                lists: [...state.lists, action.payload]
+            }
+
+        case 'DELETE_LIST':
+
+            return {
+                ...state,
+                lists: state.lists.filter((item) => item.id !== action.payload),
+                tasks: state.tasks.filter((item) => item.listID !== action.payload),
+                selectedList: ''
+            }
+
+        case 'DELETE_TASK':
+            return {
+                ...state,
+                tasks: state.tasks.filter((item) => item.id !== action.payload),
+            }
+
         default: {
-            console.log(action)
+            console.log("unknwn action", action)
             return state;
         }
     }
+}
+
+
+const toggleDone = (tasks, payload) => {
+    const tasksIndex = tasks.findIndex((Item => Item.id == payload));
+    tasks[tasksIndex].done = !tasks[tasksIndex].done;
+    tasks[tasksIndex].done_date = new Date();
+    return tasks;
 }

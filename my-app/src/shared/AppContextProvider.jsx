@@ -1,35 +1,46 @@
-import React, { createContext, useContext, useReducer } from 'react';
-
+import React, { createContext, useContext, useReducer, useEffect, useRef } from 'react';
 import { reducer } from './reducer'
+import { initialState } from './initialState'
 
-const initialState = {
-    lists: [
-        { id: 1, title: 'roro' },
-        { id: 2, title: 'koko' },
-        { id: 3, title: 'lolo' }
-    ],
-    tasks: [{
-        listId: 1,
-        payload: [
-            { id: 1, title: 'roro' },
-            { id: 2, title: 'koko' },
-        ]
-    },
-    {
-        listId: 2,
-        payload: [
-            { id: 1, title: 'ro' },
-            { id: 2, title: 'ko' },
-        ]
-    }],
-    selectedList: 1
+
+let currentState = JSON.parse(localStorage.getItem('state')) || initialState;
+
+export const AppContext = createContext();
+
+const useWindowUnloadEffect = (handler, callOnCleanup) => {
+    const cb = useRef()
+
+    cb.current = handler
+
+    useEffect(() => {
+        const handler = () => cb.current()
+
+        window.addEventListener('beforeunload', handler)
+
+        return () => {
+            if (callOnCleanup) handler()
+
+            window.removeEventListener('beforeunload', handler)
+        }
+    }, [cb])
 }
-export const StateContext = createContext();
 
-export const AppContextProvider = ({ children }) => (
+export const AppContextProvider = ({ children }) => {
 
-    <StateContext.Provider value={useReducer(reducer, initialState)}>
-        {children}
-    </StateContext.Provider>
-);
-export const useContextValue = () => useContext(StateContext);
+    const [state, dispatch] = useReducer(reducer, currentState);
+
+    useEffect(() => {
+        currentState = JSON.parse(localStorage.getItem('state'));
+        console.log(currentState);
+    });
+
+    useWindowUnloadEffect(() => localStorage.setItem('state', JSON.stringify(state)), true)
+
+    return (
+        <AppContext.Provider value={[state, dispatch]}>
+            {children}
+        </AppContext.Provider>
+    )
+};
+export const useContextValue = () => useContext(AppContext);
+

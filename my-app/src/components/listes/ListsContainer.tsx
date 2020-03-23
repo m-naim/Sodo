@@ -5,6 +5,14 @@ import List from '@material-ui/core/List';
 import Item from "./list";
 import { useStyles } from "../../utils/useStyles";
 import { useContextValue } from "../../shared/AppContextProvider";
+import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
+import { Grid, Input } from "@material-ui/core";
+import AddForm from "../shared/addForm";
+import newId from "../../utils/newId";
+
+
 
 
 
@@ -16,22 +24,23 @@ const ListsContainer = () => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     id: any,
   ) => {
-    console.log("click", id);
-
     dispatch({ type: 'SELECT_LIST', payload: id });
   };
 
+
+  const handleAdd = (title: any) => {
+    dispatch({
+      type: 'ADD_LIST', payload: { id: newId('l_'), title: title, tasks: [] }
+    });
+  }
+
   return (
     <div className="list-container">
-      <div className="header-card">
-        <h2>Listes</h2>
-        <List className={classes.list}>
-          {lists.map((value: any) => <Item value={value} selectId={handleListItemClick} selectedId={selectedList} />)}
-        </List>
-        <Button variant="contained" color="primary">Ajouter Une Liste</Button>
-      </div>
-      <div className="card-bottom-add" />
-    </div >
+      <List className='list'>
+        {lists.map((value: any) => <Item value={value} selectId={handleListItemClick} selectedId={selectedList} />)}
+      </List>
+      <AddForm add={handleAdd} />
+    </div>
   );
 }
 

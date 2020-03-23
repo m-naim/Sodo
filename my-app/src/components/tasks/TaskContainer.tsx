@@ -1,38 +1,66 @@
 import React, { useState } from "react";
 import Task from "./task";
-import Button from '@material-ui/core/Button';
-import { List } from "@material-ui/core";
 import { useStyles } from "../../utils/useStyles";
 import { useContextValue } from "../../shared/AppContextProvider";
+import { Divider, Paper, Typography, List, ListItem, IconButton, TextField, ListItemText, ListItemSecondaryAction, Input } from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined'
+import AddForm from "../shared/addForm";
+import newId from "../../utils/newId";
 
 
 const TaskContainer = (props: any) => {
-  const [{ tasks, selectedList }, dispatch] = useContextValue();
+  const [{ tasks, lists, selectedList }, dispatch] = useContextValue();
 
-  let selectedTasks = tasks.find((task: any) => task.listId === selectedList)
-
-  console.log(selectedTasks);
+  const list = lists.find((item: any) => item.id === selectedList);
+  const selectedTasks = tasks.filter((item: any) => item.listID === selectedList) || [];
 
   const classes = useStyles();
 
-  return (
-    <div className="task-container">
-      <div className="header-card">
-        <h1>Title</h1>
-      </div>
-      <List className={classes.list}>
-        {
-          selectedTasks ? selectedTasks.payload.map((task: any) => <Task data={task} />) :
-            <div>no truc</div>
+  const handleAdd = (title: any) => {
+    dispatch({
+      type: 'ADD_TASK',
+      payload: { listID: selectedList, id: newId('t_'), title: title, creation_date: new Date(), done: false }
+    })
+  }
 
-        }
-      </List>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => dispatch({ type: 'ADD_TASK', payload: { title: 'holoo' } })}>
-        Ajouter Une Liste</Button>
-    </div>
+  const handleDelete = (title: any) => {
+    dispatch({
+      type: 'DELETE_LIST',
+      payload: selectedList
+    })
+  }
+
+  console.log(list);
+
+  return (
+    list ?
+      <Paper square className="task-container">
+        <Paper square className="header-card">
+          <Typography variant="h4" color='primary' >
+            {list.title}
+          </Typography>
+          <div className='actoins-container'>
+            <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
+              <DeleteIcon fontSize="small" />
+            </IconButton>
+            <IconButton >
+              <MoreVertIcon fontSize="small" />
+            </IconButton>
+          </div>
+        </Paper>
+        <List className='list'>
+          {
+            selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} />) :
+              <div>no truc</div>
+          }
+        </List>
+
+        <AddForm add={handleAdd} />
+
+      </Paper>
+      : <div></div>
   );
 }
 

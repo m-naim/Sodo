@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import ListsContainer from './components/listes/ListsContainer';
 import TaskContainer from './components/tasks/TaskContainer';
-import Grid, { GridSpacing } from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import { AppContextProvider } from './shared/AppContextProvider.jsx';
+import SideBar from './components/sideBar.jsx';
+import StatesBar from './components/StatesBar';
+import { Paper, Typography, Drawer } from '@material-ui/core';
+
 
 function App() {
   return (
@@ -12,19 +13,17 @@ function App() {
       <div className="App">
         <div className="main-container">
 
-          <div className="side-container" >
-            <ListsContainer />
-          </div>
-          <div className="midel-container">
+          <SideBar />
+
+          <Paper className="midel-container">
             <TaskContainer />
-          </div>
-          <div className="rigth-container">
-            <TaskContainer />
-          </div>
+          </Paper>
+
+          <StatesBar />
 
         </div>
       </div>
-    </AppContextProvider>
+    </AppContextProvider >
   );
 }
 

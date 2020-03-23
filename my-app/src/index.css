@@ -16,12 +16,67 @@ code {
   display: flex;
   width: 100vw;
   height: 100vh;
-  justify-content: space-between;
 }
 
 .side-container {
   align-self: flex-start;
   justify-self: flex-start;
-  background-color: brown;
   height: 100%;
+  width: 25vw;
+  min-width: 360px;
+  display: flex;
+  flex-direction: column;
 }
+
+.midel-container {
+  display: flex;
+  height: 100vh;
+  flex-grow: 1;
+}
+
+.rigth-container {
+  width: 30vw;
+}
+
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px 10px 16px;
+}
+
+.header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 10px 16px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  padding: 0 16px 0 16px;
+  max-height: 60px;
+  flex-grow: 1;
+}
+
+.input {
+  flex-grow: 1;
+}
+
+.list-container,
+.task-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.list {
+  width: 100%;
+  min-width: 280px;
+  overflow: auto;
+  max-height: 75vh;
+}
+
+.add-form {}
