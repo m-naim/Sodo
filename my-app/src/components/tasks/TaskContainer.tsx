@@ -38,7 +38,7 @@ const TaskContainer = (props: any) => {
     list ?
       <Paper square className="task-container">
         <Paper square className="header-card">
-          <Typography variant="h4" color='primary' >
+          <Typography variant="h5" color='primary' >
             {list.title}
           </Typography>
           <div className='actoins-container'>

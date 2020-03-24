@@ -8,7 +8,7 @@ import { useContextValue } from "../../shared/AppContextProvider";
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
-import { Grid, Input } from "@material-ui/core";
+import { Grid, Input, Typography, Paper } from "@material-ui/core";
 import AddForm from "../shared/addForm";
 import newId from "../../utils/newId";
 
@@ -36,6 +36,10 @@ const ListsContainer = () => {
 
   return (
     <div className="list-container">
+      <Paper elevation={0} square className="header-card">
+        <Typography variant="h6" color='textSecondary'>Lists</Typography>
+      </Paper>
+
       <List className='list'>
         {lists.map((value: any) => <Item value={value} selectId={handleListItemClick} selectedId={selectedList} />)}
       </List>

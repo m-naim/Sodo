@@ -16,6 +16,7 @@ code {
   display: flex;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .side-container {
@@ -36,6 +37,31 @@ code {
 
 .rigth-container {
   width: 30vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.rigth-slider {
+  padding: 10px;
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.root-model {
+  display: block;
+  inset: 0px 0px auto auto !important;
+  width: 30vw;
+  height: 100vh;
+  padding: 0px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .user-card {
@@ -80,3 +106,16 @@ form {
 }
 
 .add-form {}
+
+.objectif-item {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.objectif-progess {
+  width: 55px;
+  height: 10px !important;
+  border-radius: 3px;
+}

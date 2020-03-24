@@ -6,9 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useContextValue } from "../../shared/AppContextProvider";
+import RigthModel from "../rightModel";
 
 function Task(props: any) {
 
@@ -38,10 +37,7 @@ function Task(props: any) {
         <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
           <DeleteIcon fontSize="small" />
         </IconButton>
-        <IconButton >
-          <MoreVertIcon fontSize="small" />
-        </IconButton>
-
+        <RigthModel />
       </ListItemSecondaryAction>
 
     </ListItem>
