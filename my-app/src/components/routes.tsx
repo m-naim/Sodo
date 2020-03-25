@@ -1,25 +1,27 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
-import PrivateRoute from "./privateRoute";
-import Login from "./login";
-import App from "./App";
-import { AppContextProvider } from "../shared/AppContextProvider";
+import React from 'react';
+import {
+  BrowserRouter as Router, Route, Switch,
+} from 'react-router-dom';
+import PrivateRoute from './privateRoute';
+import Login from './login';
+import App from './App';
+import { AppContextProvider } from '../shared/AppContextProvider';
 
 const Routes = (
-    <AppContextProvider>
-        <Router>
-            <Switch>
+  <AppContextProvider>
+    <Router>
+      <Switch>
 
-                <Route path="/login">
-                    <Login />
-                </Route>
-                <PrivateRoute path="/">
-                    <App />
-                </PrivateRoute>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <PrivateRoute path="/">
+          <App />
+        </PrivateRoute>
 
-            </Switch>
-        </Router>
-    </AppContextProvider>
+      </Switch>
+    </Router>
+  </AppContextProvider>
 );
 
 export default Routes;

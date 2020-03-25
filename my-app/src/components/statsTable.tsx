@@ -9,40 +9,39 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
-    table: {
-        minWidth: 150,
-    },
+  table: {
+    minWidth: 150,
+  },
 });
 
 
-
 export default function StatsTable({ data }: any) {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>()</TableCell>
-                        <TableCell align="right">today</TableCell>
-                        <TableCell align="right"> week</TableCell>
-                        <TableCell align="right">month</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {data.map((row: any) => (
-                        <TableRow key={row.type}>
-                            <TableCell component="th" scope="row">
-                                {row.type}
-                            </TableCell>
-                            <TableCell align="right">{row.day}</TableCell>
-                            <TableCell align="right">{row.week}</TableCell>
-                            <TableCell align="right">{row.month}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    );
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>()</TableCell>
+            <TableCell align="right">today</TableCell>
+            <TableCell align="right"> week</TableCell>
+            <TableCell align="right">month</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row: any) => (
+            <TableRow key={row.type}>
+              <TableCell component="th" scope="row">
+                {row.type}
+              </TableCell>
+              <TableCell align="right">{row.day}</TableCell>
+              <TableCell align="right">{row.week}</TableCell>
+              <TableCell align="right">{row.month}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }

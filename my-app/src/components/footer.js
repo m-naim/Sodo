@@ -1,18 +1,14 @@
-import React, {
-  Component
-} from 'react';
+import React from 'react';
 
-class Footer extends Component {
+const Footer = () => (
+  <div className="sidebar-sign">
+    made with
+    <span className="haert"> ♥ </span>
+    <span>
+      by m-naim
+    </span>
+  </div>
+);
 
-  render() {
-    return (
-
-      <div className="sidebar-sign" >
-        made with
-        <span className="haert" > ♥ </span> by m-naim </div>
-
-    );
-  }
-}
 
 export default Footer;

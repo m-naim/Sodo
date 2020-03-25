@@ -6,7 +6,7 @@ const HidableContainer = ({ children, ...rest }: any) => {
 
 
     return open ? (
-        <Paper className='container' square elevation={3}>
+        <Paper className='container' square elevation={2}>
             <Button onClick={() => setOpen(false)} >close</Button>
             {children}
         </Paper>
