@@ -1,47 +1,49 @@
-import { makeStyles, Theme } from '@material-ui/core/styles'
+// eslint-disable-next-line no-unused-vars
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
-import { NONAME } from 'dns';
 
-export const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 
-    small: {
-        width: theme.spacing(4),
-        height: theme.spacing(4),
+  small: {
+    width: theme.spacing(4),
+    height: theme.spacing(4),
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    height: 224,
+    '& > *': {
+      margin: theme.spacing(1),
     },
-    large: {
-        width: theme.spacing(7),
-        height: theme.spacing(7),
-    },
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-        display: 'flex',
-        height: 224,
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-    tabs: {
-        borderRight: `1px solid ${theme.palette.divider}`,
-    },
+  },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
 
 
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
 
 }));
+
+export default useStyles;

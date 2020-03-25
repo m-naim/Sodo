@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { authentification } from '../utils/authentification';
+import { Route, Redirect } from 'react-router-dom';
+import authentification from '../utils/authentification';
 
-const PrivateRoute = ({ children, ...rest }: any) => (
+const PrivateRoute = ({ children }: any) => (
 
   <Route
-    {...rest}
     render={({ location }) => (authentification.isAuthenticated() ? (
       children
     ) : (

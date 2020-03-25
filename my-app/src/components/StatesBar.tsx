@@ -2,7 +2,7 @@ import React from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import { useContextValue } from '../shared/AppContextProvider';
 import StatsTable from './statsTable';
-import { statsExtractor } from '../utils/statsDataUtils';
+import statsExtractor from '../utils/statsDataUtils';
 import Objectifs from './Objectifs';
 import HidableContainer from './shared/HidableContainer';
 

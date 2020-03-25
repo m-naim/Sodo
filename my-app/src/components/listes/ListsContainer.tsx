@@ -4,7 +4,6 @@ import {
   Typography, Paper,
 } from '@material-ui/core';
 import { useContextValue } from '../../shared/AppContextProvider';
-import { useStyles } from '../../utils/useStyles';
 import Item from './list';
 import AddForm from '../shared/addForm';
 import newId from '../../utils/newId';

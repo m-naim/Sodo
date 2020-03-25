@@ -6,9 +6,9 @@ import {
   IconButton, Button, FormControl, FilledInput,
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import { authentification } from '../utils/authentification';
+import authentification from '../utils/authentification';
 import { useContextValue } from '../shared/AppContextProvider';
-import { initialState } from '../shared/initialState';
+import initialState from '../shared/initialState';
 
 interface State {
     password: string;

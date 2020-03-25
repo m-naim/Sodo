@@ -1,4 +1,4 @@
-
+/* eslint-disable semi */
 export default interface stateContext {
     lists: Array<{ id: number, title: string }>,
     tasks: Array<{

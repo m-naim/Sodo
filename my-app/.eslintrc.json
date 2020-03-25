@@ -30,9 +30,6 @@
         ],
         "import/extensions": "off",
         "linebreak-style": 0,
-        "import/no-unresolved": [
-            2, 
-            { "caseSensitive": false }
-         ]
+        "import/no-unresolved": [0]
     }
 }
