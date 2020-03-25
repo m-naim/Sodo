@@ -30,7 +30,7 @@ const Login = () => {
     showPassword: false,
   });
   const history = useHistory();
-  const [dispatch] = useContextValue();
+  const [, dispatch] = useContextValue();
 
   const handleChange = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [prop]: event.target.value });

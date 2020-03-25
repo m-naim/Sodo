@@ -10,7 +10,7 @@ import { useContextValue } from '../../shared/AppContextProvider';
 import ButtonOpningRightModel from '../shared/ButtonOpningRightModel';
 
 function Task({ data }: any) {
-  const [dispatch] = useContextValue();
+  const [, dispatch] = useContextValue();
 
   const handleDelete = () => {
     dispatch({

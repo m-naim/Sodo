@@ -1,8 +1,8 @@
 import React, {
   createContext, useContext, useReducer, useEffect,
 } from 'react';
-import { reducer } from './reducer';
-import { initialState } from './initialState';
+import reducer from './reducer';
+import initialState from './initialState';
 import useWindowUnloadEffect from '../utils/useWindowUnloadEffect';
 
 let currentState = JSON.parse(localStorage.getItem('session-state')) || initialState;
