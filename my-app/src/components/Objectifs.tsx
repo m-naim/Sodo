@@ -9,7 +9,7 @@ const Objectifs = () => {
             <Paper elevation={0} square className="header-card">
                 <Typography variant="h6" color='textSecondary'>objectives</Typography>
                 <IconButton edge="end" aria-label="delete" >
-                    <AddCircleOutlinedIcon fontSize="small" />
+                    <AddCircleOutlinedIcon fontSize="small" color='primary' />
                 </IconButton>
             </Paper>
 

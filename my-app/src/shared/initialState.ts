@@ -10,5 +10,8 @@ export const initialState = {
         { listID: 2, id: 3, title: 'ro', done: false },
         { listID: 2, id: 4, title: 'ko', done: false },
     ],
+    model: {
+        open: false,
+    },
     selectedList: 1,
 }

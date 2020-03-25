@@ -41,6 +41,20 @@ export const reducer = (state, action) => {
                 tasks: state.tasks.filter((item) => item.id !== action.payload),
             }
 
+        case 'UPDATE':
+            return action.payload
+
+        case 'OPEN_MODEL':
+            return {
+                ...state,
+                model: { ...state.model, open: true }
+            }
+        case 'CLOSE_MODEL':
+            return {
+                ...state,
+                model: { ...state.model, open: false }
+            }
+
         default: {
             console.log("unknwn action", action)
             return state;

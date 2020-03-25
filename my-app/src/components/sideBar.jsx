@@ -10,7 +10,7 @@ function SideBar() {
   const classes = useStyles();
 
   return (
-    <Paper square className="side-container" >
+    <Paper elevation={3} square className="side-container" >
       <UserPanel />
       <ListsContainer />
     </Paper>

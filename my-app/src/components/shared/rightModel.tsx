@@ -1,39 +1,29 @@
 import React from 'react';
 import Modal from '@material-ui/core/Modal';
 import { Paper, Slide, Button } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import IconButton from '@material-ui/core/IconButton';
-import { useStyles } from '../utils/useStyles';
+import { useContextValue } from '../../shared/AppContextProvider';
+
 
 
 
 export default function RigthModel() {
 
-    const [open, setOpen] = React.useState(false);
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
+    const [{ model }, dispatch] = useContextValue();
     const handleClose = () => {
-        setOpen(false);
+        dispatch({ type: 'CLOSE_MODEL' })
     };
 
     return (
         <React.Fragment>
-
-            <IconButton onClick={handleOpen}>
-                <MoreVertIcon fontSize="small" />
-            </IconButton>
             <Modal
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
-                open={open}
+                open={model.open || false}
                 onClose={handleClose}
                 hideBackdrop
                 className='root-model'
             >
-                <Slide in={open} direction="left" >
+                <Slide in={model.open} direction="left" >
                     <Paper className='rigth-slider'>
                         <Button onClick={handleClose}>close</Button>
                         <h2 id="simple-modal-title">Text in a modal</h2>

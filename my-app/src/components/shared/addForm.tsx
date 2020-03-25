@@ -15,7 +15,7 @@ function AddForm(props: { add: any }) {
             <Input className='input' placeholder="Ajouter une tache" value={input} onChange={(e) => setInput(e.target.value)} />
 
             <IconButton edge="end" aria-label="delete" onClick={handleSubmit}>
-                <AddCircleOutlinedIcon fontSize="large" />
+                <AddCircleOutlinedIcon fontSize="large" color='primary' />
             </IconButton>
         </form>
     );

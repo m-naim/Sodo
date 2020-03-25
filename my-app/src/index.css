@@ -41,6 +41,9 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  overflow: auto;
+  min-width: 360px;
+  flex: 1;
 }
 
 .rigth-slider {
@@ -64,21 +67,17 @@ code {
   justify-content: space-between;
 }
 
-.user-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px 10px 16px;
-}
 
 .header-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px 10px 16px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-form {
+.add-form {
   display: flex;
   align-items: center;
   justify-content: stretch;
@@ -105,7 +104,7 @@ form {
   max-height: 75vh;
 }
 
-.add-form {}
+
 
 .objectif-item {
   display: flex;
@@ -118,4 +117,41 @@ form {
   width: 55px;
   height: 10px !important;
   border-radius: 3px;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50vw;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  min-width: 320px;
+  height: 300px;
+  justify-content: space-evenly;
+}
+
+.form-control {
+  width: 100%;
+  margin: 50px;
+  height: 50px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
 }

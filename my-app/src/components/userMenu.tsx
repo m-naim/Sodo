@@ -2,9 +2,12 @@ import React from 'react';
 import { Button, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useHistory } from 'react-router-dom';
+import { authentification } from '../utils/authentification';
+import { useContextValue } from '../shared/AppContextProvider';
 
 
 export default function UserMenu() {
+    const [state] = useContextValue();
     let history = useHistory();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -17,7 +20,8 @@ export default function UserMenu() {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('session')
+        localStorage.setItem(`${authentification.session.username}-state`, JSON.stringify(state))
+        authentification.signout()
         history.push("/login")
     }
 
