@@ -36,6 +36,7 @@ const TaskContainer = () => {
   return (
     list
       ? (
+
         <div className="task-container">
           <div className="header-card">
             <Typography variant="h5" color="primary">
@@ -49,12 +50,12 @@ const TaskContainer = () => {
 
           <List className="list">
             {
-            selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} />)
-              : <EmptyElement />
-          }
+              selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} />)
+                : <EmptyElement />
+            }
           </List>
 
-          <AddForm add={handleAdd} />
+          <AddForm add={handleAdd} label="Ajouter une Tâche" />
 
         </div>
       )

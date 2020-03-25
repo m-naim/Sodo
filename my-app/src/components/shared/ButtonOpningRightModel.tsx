@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { useContextValue } from '../../shared/AppContextProvider';
 
 const ButtonOpningRightModel = () => {
-  const [dispatch] = useContextValue();
+  const [, dispatch] = useContextValue();
   const handleOpen = () => {
     dispatch({ type: 'OPEN_MODEL' });
   };

@@ -2,13 +2,16 @@ import React from 'react';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import {
-  Paper, Divider, TextField, InputLabel, InputAdornment,
-  IconButton, Button, FormControl, FilledInput,
+  Paper, TextField, InputLabel, InputAdornment,
+  IconButton, Button, FormControl, FilledInput, Typography, Tooltip,
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import InfoIcon from '@material-ui/icons/Info';
 import authentification from '../utils/authentification';
 import { useContextValue } from '../shared/AppContextProvider';
 import initialState from '../shared/initialState';
+import WavesAnimation from './Waves/WavesAnimation';
+
 
 interface State {
     password: string;
@@ -52,8 +55,10 @@ const Login = () => {
 
   return (
     <Paper className="login-container">
-      <Paper className="login-card">
+      <div className="login-card">
         <form noValidate className="login-form" onSubmit={HandleConection}>
+          <Typography color="primary" variant="h5">Ha, Salut!</Typography>
+          <Typography variant="h6">Connecte Toi et Amuse toi bien</Typography>
           <TextField
             className="form-control"
             id="filled-basic"
@@ -85,16 +90,26 @@ const Login = () => {
 
             />
           </FormControl>
-          <Button className="form-control" variant="contained" onClick={HandleConection}>Se connecter</Button>
+          <Button className="form-control" variant="contained" onClick={HandleConection} color="secondary">Se connecter</Button>
+          <div className="box">
+            <Typography variant="h6">tu n &#39; a pas de compte?</Typography>
+            <Tooltip title="Pas besion! connecte toi et le compte se creéra automatiquement...">
+              <IconButton aria-label="delete">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
         </form>
 
-        <Divider />
         <div className="login-form">
+          <Typography variant="h6">Ou</Typography>
+
           <Button className="form-control" variant="contained" onClick={HandleConection}>Se connecter avec Google</Button>
           <Button className="form-control" variant="contained" onClick={HandleConection}>Se connecter avec Facebook</Button>
         </div>
 
-      </Paper>
+      </div>
+      <WavesAnimation />
     </Paper>
   );
 };

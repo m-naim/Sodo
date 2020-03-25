@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
 import PrivateRoute from './privateRoute';
-import Login from './login';
-import App from './App';
-import { AppContextProvider } from '../shared/AppContextProvider';
+import Login from '../login';
+import App from '../App';
+import { AppContextProvider } from '../../shared/AppContextProvider';
 
 const Routes = (
   <AppContextProvider>

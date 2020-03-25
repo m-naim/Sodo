@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
 
 const Objectifs = () => (
-  <Paper>
+  <Paper className="container">
     <Paper elevation={0} square className="header-card">
       <Typography variant="h6" color="textSecondary">objectives</Typography>
       <IconButton edge="end" aria-label="delete">

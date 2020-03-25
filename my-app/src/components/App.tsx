@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskContainer from './tasks/TaskContainer';
 import SideBar from './sideBar.jsx';
-import StatesBar from './StatesBar';
+import StatesBar from './statistics/StatesBar';
 import RigthModel from './shared/rightModel';
 
 function App() {

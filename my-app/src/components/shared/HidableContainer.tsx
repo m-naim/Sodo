@@ -1,5 +1,6 @@
 import React from 'react';
-import { Paper, Button } from '@material-ui/core';
+import { Paper, IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 // eslint-disable-next-line no-unused-vars
 const HidableContainer = ({ children, ...rest }: any) => {
@@ -8,7 +9,11 @@ const HidableContainer = ({ children, ...rest }: any) => {
 
   return open ? (
     <Paper className="container" square elevation={2}>
-      <Button onClick={() => setOpen(false)}>close</Button>
+      <div className="card-header">
+        <IconButton color="secondary" aria-label="close" onClick={() => setOpen(false)}>
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      </div>
       {children}
     </Paper>
   ) : null;

@@ -41,7 +41,7 @@ const ListsContainer = () => {
           />
         ))}
       </List>
-      <AddForm add={handleAdd} />
+      <AddForm add={handleAdd} label="Ajouter une Liste" />
     </div>
   );
 };
