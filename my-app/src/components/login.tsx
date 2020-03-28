@@ -92,10 +92,10 @@ const Login = () => {
           </FormControl>
           <Button className="form-control" variant="contained" onClick={HandleConection} color="secondary">Se connecter</Button>
           <div className="box">
-            <Typography variant="h6">tu n &#39; a pas de compte?</Typography>
+            <Typography variant="body2" color="textSecondary">tu n&lsquo;a pas de compte?</Typography>
             <Tooltip title="Pas besion! connecte toi et le compte se creéra automatiquement...">
               <IconButton aria-label="delete">
-                <InfoIcon />
+                <InfoIcon fontSize="small" />
               </IconButton>
             </Tooltip>
           </div>

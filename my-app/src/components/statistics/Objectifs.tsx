@@ -15,7 +15,7 @@ const Objectifs = () => (
     </Paper>
 
     <Paper className="objectif-item">
-      <Typography variant="body1" color="textPrimary"> Tasks peer day</Typography>
+      <Typography variant="body1" color="textPrimary"> Tâches par jour</Typography>
       <LinearProgress className="objectif-progess" variant="determinate" value={0} />
       <Typography variant="body1" color="textPrimary">0/1</Typography>
       <IconButton edge="end" aria-label="delete">

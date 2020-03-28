@@ -39,12 +39,12 @@ const TaskContainer = () => {
 
         <div className="task-container">
           <div className="header-card">
-            <Typography variant="h5" color="primary">
+            <Typography variant="h3" color="primary">
               {list.title}
             </Typography>
             <div className="actoins-container">
               <AlertDialog action={handleDelete} />
-              <ButtonOpningRightModel />
+              <ButtonOpningRightModel component="List settings" />
             </div>
           </div>
 

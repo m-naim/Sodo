@@ -36,7 +36,7 @@ function Task({ data }: any) {
         <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
           <DeleteIcon fontSize="small" />
         </IconButton>
-        <ButtonOpningRightModel />
+        <ButtonOpningRightModel component="TASK_SETTINGS" />
       </ListItemSecondaryAction>
 
     </ListItem>

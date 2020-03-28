@@ -45,7 +45,7 @@ code {
   flex: 1;
 }
 
-.rigth-slider {
+.slider {
   padding: 10px;
   width: 30vw;
   height: 100vh;
@@ -54,9 +54,10 @@ code {
   justify-content: space-between;
 }
 
-.root-model {
+
+.left-model,
+.right-model{
   display: block;
-  inset: 0px 0px auto auto !important;
   width: 30vw;
   height: 100vh;
   padding: 0px;
@@ -65,14 +66,16 @@ code {
   flex-direction: column;
   justify-content: space-between;
 }
+.right-model{
+  inset: 0px 0px auto auto !important;
+}
 
 
 .header-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px 10px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 16px 10px 26px;
 }
 
 .add-form {
@@ -82,6 +85,9 @@ code {
   padding: 0 16px 0 16px;
   max-height: 60px;
   flex-grow: 1;
+  background-color: rgba(212, 218, 218, 0.404);
+  margin: 5px;
+  border-radius: 3px;
 }
 
 .input {
@@ -93,6 +99,9 @@ code {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+.task-container{
+  background: linear-gradient(#e0e0e011, #a3cbff70);
 }
 
 .list {
@@ -153,6 +162,22 @@ code {
   margin: 5px;
   text-align: center;
 }
+.container-left{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: space-evenly;
+}
+
+.slider-rigth-container-centerd{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 .centered{
   align-items: center;
@@ -164,4 +189,24 @@ code {
 .box{
   display: flex;
   align-items: center;
+}
+
+.time-control{
+  width: 200px !important;
+}
+
+.space-filler{
+  height: 10px;
+  width: 10px;
+}
+
+.horizontal-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.small-margin{
+  display: block;
+  margin: 5px !important;
 }

@@ -14,12 +14,11 @@ export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, currentState);
 
   useEffect(() => {
-    currentState = JSON.parse(localStorage.getItem('session-state'));
+    localStorage.setItem('session-state', JSON.stringify(state));
   });
 
-  useWindowUnloadEffect(() => {
-    localStorage.setItem('session-state', JSON.stringify(state));
-  }, true);
+  // useWindowUnloadEffect(() => {
+  // }, true);
 
   return (
     <AppContext.Provider value={[state, dispatch]}>

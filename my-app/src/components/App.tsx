@@ -2,7 +2,7 @@ import React from 'react';
 import TaskContainer from './tasks/TaskContainer';
 import SideBar from './sideBar.jsx';
 import StatesBar from './statistics/StatesBar';
-import RigthModel from './shared/rightModel';
+import SliderModel from './slider/SliderModel';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <SideBar />
         <TaskContainer />
         <StatesBar />
-        <RigthModel />
+        <SliderModel />
       </div>
     </div>
   );

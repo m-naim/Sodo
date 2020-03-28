@@ -23,10 +23,10 @@ export default function StatsTable({ data }: any) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>()</TableCell>
-            <TableCell align="right">today</TableCell>
-            <TableCell align="right"> week</TableCell>
-            <TableCell align="right">month</TableCell>
+            <TableCell />
+            <TableCell align="right">Aujourd&lsquo;hui</TableCell>
+            <TableCell align="right">Cette Semaine</TableCell>
+            <TableCell align="right">Ce Mois</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

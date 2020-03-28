@@ -52,7 +52,7 @@ const reducer = (state, action) => {
     case 'OPEN_MODEL':
       return {
         ...state,
-        model: { ...state.model, open: true },
+        model: { ...state.model, open: true, ...action.payload },
       };
     case 'CLOSE_MODEL':
       return {

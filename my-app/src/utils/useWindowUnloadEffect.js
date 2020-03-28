@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useRef } from 'react';
 
 const useWindowUnloadEffect = (handler, callOnCleanup) => {
@@ -6,7 +7,6 @@ const useWindowUnloadEffect = (handler, callOnCleanup) => {
   cb.current = handler;
 
   useEffect(() => {
-    // eslint-disable-next-line no-shadow
     const handler = () => cb.current();
 
     window.addEventListener('beforeunload', handler);

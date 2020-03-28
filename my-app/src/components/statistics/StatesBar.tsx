@@ -5,6 +5,7 @@ import StatsTable from './statsTable';
 import statsExtractor from '../../utils/statsDataUtils';
 import Objectifs from './Objectifs';
 import OnBording from './OnBording';
+import QuoteBox from './quoteBox';
 
 const StatesBar = () => {
   const [{ tasks }] = useContextValue();
@@ -13,6 +14,7 @@ const StatesBar = () => {
 
   return (
     <Paper className="rigth-container">
+      <QuoteBox />
       <OnBording />
 
       <Objectifs />

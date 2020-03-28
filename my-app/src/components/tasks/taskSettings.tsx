@@ -2,13 +2,13 @@ import React from 'react';
 import 'date-fns';
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import {
-  TextField,
+  TextField, Typography,
 } from '@material-ui/core';
+import EditableText from '../shared/EditableText';
 
 const TaskSettings = () => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(
@@ -18,44 +18,50 @@ const TaskSettings = () => {
     setSelectedDate(date);
   };
   return (
-    <div className="container">
-      <h2 id="simple-modal-title">Text TItle</h2>
-      <h2 id="simple-modal-title">Echeance</h2>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <div className="container-left">
+      <Typography variant="h5" color="textPrimary">
+        Text TItle
+      </Typography>
 
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/dd/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label="Date picker inline"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label="Time picker"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-      </MuiPickersUtilsProvider>
+      <EditableText initialValue="This text can be edited by the user." />
 
-      <h2 id="simple-modal-title">Rappel</h2>
-      <h2 id="simple-modal-title">Note</h2>
+      <div>
+
+        <Typography variant="h5" color="textPrimary">
+          Echeance
+        </Typography>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+
+          <KeyboardDatePicker
+            className="time-control"
+            disableToolbar
+            variant="inline"
+            format="MM/dd/yyyy"
+            margin="normal"
+            id="date-picker-inline"
+            label="Date picker inline"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
+        </MuiPickersUtilsProvider>
+      </div>
+
+      <Typography variant="h5" color="textPrimary">
+        Rappel
+      </Typography>
+      <Typography variant="h5" color="textPrimary">
+        Note
+      </Typography>
+
       <TextField
         id="filled-multiline-static"
-        label="Multiline"
+        label="Ajouter une note"
         multiline
-        rows="4"
-        defaultValue="Default Value"
+        rows="5"
+        defaultValue=""
         variant="filled"
       />
     </div>

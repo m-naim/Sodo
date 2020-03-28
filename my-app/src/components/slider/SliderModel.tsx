@@ -6,9 +6,12 @@ import {
 import CloseIcon from '@material-ui/icons/Close';
 import { useContextValue } from '../../shared/AppContextProvider';
 import TaskSettings from '../tasks/taskSettings';
+import inverseDirection from '../../utils/inverseDirection';
+import Preferences from './Preferences';
+import MonCompte from './MonCompte';
 
 
-export default function RigthModel() {
+export default function SliderModel() {
   const [{ model }, dispatch] = useContextValue();
 
 
@@ -16,6 +19,19 @@ export default function RigthModel() {
     dispatch({ type: 'CLOSE_MODEL' });
   };
 
+  const selectComponent = () => {
+    switch (model.component) {
+      case 'TASK_SETTINGS':
+        return <TaskSettings />;
+      case 'Preferences':
+        return <Preferences />;
+      case 'Mon compte':
+        return <MonCompte />;
+
+      default:
+        return <Preferences />;
+    }
+  };
   return (
     <>
       <Modal
@@ -24,16 +40,19 @@ export default function RigthModel() {
         open={model.open || false}
         onClose={handleClose}
         hideBackdrop
-        className="root-model"
+        className={`${model.position}-model`}
       >
-        <Slide in={model.open} direction="left">
-          <Paper className="rigth-slider">
-            <div className="card-header">
+        <Slide in={model.open} direction={inverseDirection(model.position)}>
+          <Paper elevation={3} className="slider">
+            <div className="header-card">
               <IconButton color="secondary" aria-label="close" onClick={handleClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </div>
-            <TaskSettings />
+            {
+              selectComponent()
+            }
+
           </Paper>
         </Slide>
       </Modal>

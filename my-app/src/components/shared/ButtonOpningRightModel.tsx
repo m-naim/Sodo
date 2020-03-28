@@ -3,14 +3,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import { useContextValue } from '../../shared/AppContextProvider';
 
-const ButtonOpningRightModel = () => {
+const ButtonOpningRightModel = ({ component }:any) => {
   const [, dispatch] = useContextValue();
   const handleOpen = () => {
-    dispatch({ type: 'OPEN_MODEL' });
+    dispatch({ type: 'OPEN_MODEL', payload: { position: 'right', component } });
   };
 
   return (
-    <IconButton onClick={handleOpen}>
+    <IconButton color="primary" onClick={handleOpen}>
       <MoreVertIcon fontSize="small" />
     </IconButton>
   );

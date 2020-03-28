@@ -6,7 +6,8 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "eslint:recommended"
+        "eslint:recommended",
+        "react-hooks"
     ],
     "globals": {
         "Atomics": "readonly",
