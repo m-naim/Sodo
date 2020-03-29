@@ -9,7 +9,7 @@ const mongoose = require('mongoose'),
 
 var passport = require('passport');
 const path = require("path"),
-  routes = require('../app/routes.js');
+  routes = require('./app/routes.js');
 
 require('dotenv').config();
 
@@ -57,16 +57,9 @@ mongo.connect(process.env.DATABASE_URL, (err, db) => {
     auth(passport, db);
     app.use('/', routes);
 
-    if (process.env.node_env === 'production') {
-      app.use(express.static(path.join(__dirname, "client", "build")))
-      app.get("*", (req, res) => {
-        console.log('port: ' + process.env.PORT);
-        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-      });
-    }
 
     app.listen(process.env.PORT || 8080, () => {
-      console.log("Listening on port " + process.env.PORT);
+      console.log("Listening on port " + process.env.PORT||8080);
     });
   }
 });
