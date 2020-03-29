@@ -9,7 +9,7 @@ const mongoose = require('mongoose'),
 
 var passport = require('passport');
 const path = require("path"),
-  routes = require('./app/routes.js');
+  routes = require('../app/routes.js');
 
 require('dotenv').config();
 
