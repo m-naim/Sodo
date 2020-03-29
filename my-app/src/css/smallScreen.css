@@ -1,0 +1,23 @@
+@media (max-width: 480px){
+    .task-container{
+        background: linear-gradient(172deg, rgba(246,254,252,1) 48%, rgba(180,235,246,1) 100%); 
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+    .slider ,.left-model,
+    .right-model{
+        width: 100vw;
+      }
+      .login-card {
+        padding: 20px;
+        min-width: calc(100vw-20px);
+      }
+      .side-container {
+        min-width: 100vw;
+      }
+ 
+}

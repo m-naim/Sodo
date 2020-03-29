@@ -47,10 +47,13 @@ const Login = () => {
     event.preventDefault();
   };
 
-  const HandleConection = () => {
-    authentification.authetificate({ username: values.userName });
-    dispatch({ type: 'UPDATE', payload: getStoredState(values.userName) });
-    history.push('/');
+  const HandleConection = async () => {
+    const user = { username: values.userName, password: values.password };
+    const authSuccess = await authentification.authetificate(user);
+    if (authSuccess) {
+      dispatch({ type: 'UPDATE', payload: getStoredState(values.userName) });
+      history.push('/');
+    }
   };
 
   return (

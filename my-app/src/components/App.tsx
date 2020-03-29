@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <div className="main-container">
         <SideBar />
+
         <TaskContainer />
         <StatesBar />
         <SliderModel />

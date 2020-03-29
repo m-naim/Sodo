@@ -3,12 +3,13 @@ import Modal from '@material-ui/core/Modal';
 import {
   Paper, Slide, IconButton,
 } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useContextValue } from '../../shared/AppContextProvider';
 import TaskSettings from '../tasks/taskSettings';
 import inverseDirection from '../../utils/inverseDirection';
 import Preferences from './Preferences';
 import MonCompte from './MonCompte';
+import Apropos from './Apropos';
 
 
 export default function SliderModel() {
@@ -27,6 +28,8 @@ export default function SliderModel() {
         return <Preferences />;
       case 'Mon compte':
         return <MonCompte />;
+      case 'A propos':
+        return <Apropos />;
 
       default:
         return <Preferences />;
@@ -46,7 +49,7 @@ export default function SliderModel() {
           <Paper elevation={3} className="slider">
             <div className="header-card">
               <IconButton color="secondary" aria-label="close" onClick={handleClose}>
-                <CloseIcon fontSize="small" />
+                <ArrowBackIcon />
               </IconButton>
             </div>
             {

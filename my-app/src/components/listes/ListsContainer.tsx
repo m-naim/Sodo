@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import {
-  Typography, Paper,
+  Typography, Paper, ListSubheader,
 } from '@material-ui/core';
 import { useContextValue } from '../../shared/AppContextProvider';
 import Item from './list';
@@ -28,11 +28,15 @@ const ListsContainer = () => {
 
   return (
     <div className="list-container">
-      <Paper elevation={0} square className="header-card">
-        <Typography variant="h6" color="textSecondary">Lists</Typography>
-      </Paper>
-
-      <List className="list">
+      <List
+        className="list"
+        subheader={(
+          // eslint-disable-next-line react/jsx-no-undef
+          <ListSubheader component="div" id="nested-list-subheader">
+            Lists
+          </ListSubheader>
+        )}
+      >
         {lists.map((value: any) => (
           <Item
             value={value}

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  Typography, List,
+  Typography, List, IconButton,
 } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Task from './task';
 import { useContextValue } from '../../shared/AppContextProvider';
 import AddForm from '../shared/addForm';
@@ -9,6 +10,7 @@ import newId from '../../utils/newId';
 import EmptyElement from '../shared/EmptyElement';
 import AlertDialog from '../shared/AlertDialog';
 import ButtonOpningRightModel from '../shared/ButtonOpningRightModel';
+import HidableContainer from '../shared/HidableContainer';
 
 
 const TaskContainer = () => {
@@ -33,33 +35,45 @@ const TaskContainer = () => {
     });
   };
 
+  const handleClose = () => {
+    dispatch({
+      type: 'SELECT_LIST',
+      payload: null,
+    });
+  };
+
   return (
-    list
-      ? (
-
-        <div className="task-container">
-          <div className="header-card">
-            <Typography variant="h3" color="primary">
-              {list.title}
-            </Typography>
-            <div className="actoins-container">
-              <AlertDialog action={handleDelete} />
-              <ButtonOpningRightModel component="List settings" />
-            </div>
+    <HidableContainer
+      className="task-container"
+      header={(
+        <div className="header-card">
+          <IconButton className="close-btn" color="secondary" aria-label="close" onClick={handleClose}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h4" color="primary">
+            {list ? list.title : '' }
+          </Typography>
+          <div className="space-filler" />
+          <div className="actoins-container">
+            <AlertDialog action={handleDelete} />
+            <ButtonOpningRightModel component="List settings" />
           </div>
+        </div>
+        )}
+      openStatus={Boolean(selectedList)}
+    >
 
-          <List className="list">
-            {
+
+      <List className="list">
+        {
               selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} />)
                 : <EmptyElement />
             }
-          </List>
+      </List>
 
-          <AddForm add={handleAdd} label="Ajouter une Tâche" />
+      <AddForm add={handleAdd} label="Ajouter une Tâche" />
 
-        </div>
-      )
-      : <div />
+    </HidableContainer>
   );
 };
 

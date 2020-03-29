@@ -1,5 +1,8 @@
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
+import './css/smallScreen.css';
+import './css/largeScreen.css';
+import './css/mediumScreen.css';
 import * as serviceWorker from './serviceWorker';
 import Routes from './components/routes/routes';
 
