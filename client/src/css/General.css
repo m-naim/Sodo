@@ -74,8 +74,16 @@ h4 {
   margin-left: 50px;
 }
 
+.logout {
+  border: none;
+  box-shadow: none;
+  background: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
 
 .logout:hover {
+  margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -146,7 +154,8 @@ h4 {
   color: #172b4d !important;
   display: none;
   position: absolute;
-  width: 160px;
+  min-width: 160px;
+  padding: 15px;
   box-shadow: 2px 2px 2px rgba(9, 30, 66, 0.25);
   z-index: 1;
   border-radius: 2px;
@@ -154,7 +163,7 @@ h4 {
 }
 
 .js-drop-down div {
-  padding: 15px;
+  z-index: 2;
 }
 
 .js-drop-down button {
