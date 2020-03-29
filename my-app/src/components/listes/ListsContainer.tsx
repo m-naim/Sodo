@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import {
-  Typography, Paper, ListSubheader,
+  ListSubheader,
 } from '@material-ui/core';
 import { useContextValue } from '../../shared/AppContextProvider';
 import Item from './list';

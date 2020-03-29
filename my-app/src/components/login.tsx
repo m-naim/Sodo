@@ -104,12 +104,24 @@ const Login = () => {
           </div>
         </form>
 
-        <div className="login-form">
+        {/* <div className="login-form">
           <Typography variant="h6">Ou</Typography>
 
-          <Button className="form-control" variant="contained" onClick={HandleConection}>Se connecter avec Google</Button>
-          <Button className="form-control" variant="contained" onClick={HandleConection}>Se connecter avec Facebook</Button>
-        </div>
+          <Button
+            className="form-control"
+            variant="contained"
+            onClick={HandleConection}
+          >
+            Se connecter avec Google
+          </Button>
+          <Button
+            className="form-control"
+            variant="contained"
+            onClick={HandleConection}
+          >
+            Se connecter avec Facebook
+          </Button>
+        </div> */}
 
       </div>
       <WavesAnimation />

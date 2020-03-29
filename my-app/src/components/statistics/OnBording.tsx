@@ -29,7 +29,7 @@ const checkLists = [
 const OnBording = () => {
   const session = JSON.parse(localStorage.getItem('session') || '{}');
   return (
-    <HidableContainer storageKey="onBording">
+    <HidableContainer className="MuiPaper-root MuiPaper-elevation1" storageKey="onBording">
       <img src="https://opendoodles.s3-us-west-1.amazonaws.com/zombieing.svg" alt="no tasks" width="200" />
       <Typography color="secondary" variant="h4" gutterBottom>
         {'Bienvenu ' }

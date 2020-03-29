@@ -9,7 +9,7 @@ import AddForm from '../shared/addForm';
 import newId from '../../utils/newId';
 import EmptyElement from '../shared/EmptyElement';
 import AlertDialog from '../shared/AlertDialog';
-import ButtonOpningRightModel from '../shared/ButtonOpningRightModel';
+// import ButtonOpningRightModel from '../shared/ButtonOpningRightModel';
 import HidableContainer from '../shared/HidableContainer';
 
 
@@ -56,7 +56,7 @@ const TaskContainer = () => {
           <div className="space-filler" />
           <div className="actoins-container">
             <AlertDialog action={handleDelete} />
-            <ButtonOpningRightModel component="List settings" />
+            {/* <ButtonOpningRightModel component="List settings" /> */}
           </div>
         </div>
         )}

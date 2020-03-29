@@ -35,7 +35,7 @@ const QuoteBox = () => {
 
   const date = getRondomBetween(0, state.length);
   return state.length > 1 ? (
-    <HidableContainer storageKey="quoteBox">
+    <HidableContainer className="MuiPaper-root MuiPaper-elevation1" storageKey="quoteBox">
       <blockquote className="blockquote">
         <Typography variant="h6" gutterBottom>
           {state[date].quote }
