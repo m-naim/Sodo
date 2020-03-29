@@ -150,3 +150,8 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
+
+#editor and linter
+.vscode/
+package-lock.json
+.eslintrc.json
