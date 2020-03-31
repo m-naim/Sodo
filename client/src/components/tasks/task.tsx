@@ -8,10 +8,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useContextValue } from '../../shared/AppContextProvider';
 import ButtonOpningRightModel from '../shared/ButtonOpningRightModel';
+import useAudio from '../../utils/useAudio';
 
-function Task({ data }: any) {
+ 
+
+function Task({ data, beep }: any) {
   const [, dispatch] = useContextValue();
-
   const handleDelete = () => {
     dispatch({
       type: 'DELETE_TASK',
@@ -19,8 +21,17 @@ function Task({ data }: any) {
     });
   };
 
+  const handleClick=()=>{
+    dispatch({ type: 'TOGLE_DONE', payload: data.id });
+    if(data.done) {
+      beep.currentTime = 0;
+      beep.play();
+      }
+   
+  }
+
   return (
-    <ListItem divider key={data.id} button onClick={() => dispatch({ type: 'TOGLE_DONE', payload: data.id })}>
+    <ListItem divider key={data.id} button onClick={handleClick}>
       <ListItemIcon>
         <Checkbox
           edge="start"

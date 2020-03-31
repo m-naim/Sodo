@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Typography, List, IconButton,
 } from '@material-ui/core';
@@ -16,6 +16,10 @@ import HidableContainer from '../shared/HidableContainer';
 const TaskContainer = () => {
   const [{ tasks, lists, selectedList }, dispatch] = useContextValue();
 
+  const [audio] = useState(()=>{
+    console.log('new audio'+ process.env.PUBLIC_URL+'sounds/beep.mp3');
+    return new Audio(process.env.PUBLIC_URL+'sounds/beep.mp3')
+  });
   const list = lists.find((item: any) => item.id === selectedList);
   const selectedTasks = tasks.filter((item: any) => item.listID === selectedList) || [];
 
@@ -66,7 +70,7 @@ const TaskContainer = () => {
 
       <List className="list">
         {
-              selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} />)
+              selectedTasks.length ? selectedTasks.map((task: any) => <Task data={task} beep={audio} />)
                 : <EmptyElement />
             }
       </List>

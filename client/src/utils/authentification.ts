@@ -3,7 +3,6 @@ import {
   supportsCrypto, hash, encode64,
 } from './crypto';
 
-// const defaultSession = JSON.stringify({ username: '' });
 const defaultUsers = JSON.stringify({ 0: {} });
 
 const authentification = {
@@ -43,7 +42,6 @@ const authentification = {
       });
     }
     users[uid] = newuser;
-    // console.log(JSON.stringify(users));
     localStorage.setItem('users', JSON.stringify(users));
     return [uid, true];
   },

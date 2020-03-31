@@ -3,9 +3,8 @@ import React, {
 } from 'react';
 import reducer from './reducer';
 import initialState from './initialState';
-import useWindowUnloadEffect from '../utils/useWindowUnloadEffect';
 
-let currentState = JSON.parse(localStorage.getItem('session-state')) || initialState;
+const currentState = JSON.parse(localStorage.getItem('session-state')) || initialState;
 
 export const AppContext = createContext();
 
@@ -15,10 +14,8 @@ export const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('session-state', JSON.stringify(state));
-  });
+  }, [state]);
 
-  // useWindowUnloadEffect(() => {
-  // }, true);
 
   return (
     <AppContext.Provider value={[state, dispatch]}>
