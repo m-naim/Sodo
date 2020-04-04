@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  List, ListItem, ListItemIcon, Checkbox, ListItemText, ListSubheader,
+  List, ListItem, ListItemIcon, Checkbox, ListItemText, ListSubheader, FormControl, FormControlLabel, Switch,
 } from '@material-ui/core';
 
 const displayPreferences = [
@@ -27,9 +27,22 @@ const Preferences = () => {
     setState(newState);
   };
 
+  const handleDarkMode=()=>{
+    localStorage.setItem('prefers-color-scheme','dark');
+  }
+
   return (
     <div className="slider-rigth-container-centerd">
-
+      <FormControl component="fieldset" onChange={handleDarkMode}>
+  
+        <FormControlLabel
+          value="start"
+          control={<Switch color="primary" />}
+          label="Activer le mode nuit"
+          labelPlacement="start"
+        />
+        
+      </FormControl>
       <List
         className="list"
         subheader={(

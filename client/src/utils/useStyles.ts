@@ -1,7 +1,7 @@
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 
   small: {
     width: theme.spacing(4),

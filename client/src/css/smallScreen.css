@@ -1,6 +1,5 @@
 @media (max-width: 480px){
-    .task-container{
-        background: linear-gradient(172deg, rgba(246,254,252,1) 48%, rgba(180,235,246,1) 100%); 
+    .task-container{ 
         width: 100vw;
         height: 100vh;
         z-index: 1000;

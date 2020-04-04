@@ -21,6 +21,7 @@ const MonCompte = () => {
 
   useEffect(() => {
     setUsers({ ...users, [session.uid]: userInfos });
+    // eslint-disable-next-line
   }, [userInfos]);
 
   useEffect(() => localStorage.setItem('users', JSON.stringify(users)), [users]);

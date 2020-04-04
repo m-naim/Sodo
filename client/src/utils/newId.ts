@@ -5,6 +5,6 @@ export default function newId(prefix = 'id') {
 
   if (isNaN(lastId)) lastId = 4;
   lastId += 1;
-  localStorage.setem('lastId', lastId.toString());
+  localStorage.setItem('lastId', lastId.toString());
   return `${prefix}${lastId}`;
 }

@@ -13,7 +13,7 @@ const StatesBar = () => {
 
 
   return (
-    <Paper className="rigth-container">
+    <Paper square className="rigth-container">
       <QuoteBox />
       <OnBording />
 

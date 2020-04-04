@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  IconButton, Typography, Checkbox, Slide,
+  IconButton, Typography, Checkbox, Slide, Container, Paper,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -21,7 +21,7 @@ const HidableContainer = ({
 
   return (close) ? null : (
     <Slide direction="right" in={openStatus} mountOnEnter unmountOnExit>
-      <div className={className}>
+      <Paper square variant='outlined' className={className}>
         {(header) || (
         <div className="header-card">
           <div className="horizontal-item">
@@ -45,7 +45,7 @@ const HidableContainer = ({
         </div>
         )}
         {children}
-      </div>
+      </Paper >
     </Slide>
   );
 };
