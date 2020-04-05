@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
-import ListsContainer from './listes/ListsContainer';
+import ListsContainer from '../listes/ListsContainer';
 import UserPanel from './userPanel.tsx';
 
 

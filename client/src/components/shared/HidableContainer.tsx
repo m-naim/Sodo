@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  IconButton, Typography, Checkbox, Slide, Container, Paper,
+  IconButton, Typography, Checkbox, Slide,  Paper,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 

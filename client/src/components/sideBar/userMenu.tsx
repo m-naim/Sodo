@@ -9,8 +9,8 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import TuneIcon from '@material-ui/icons/Tune';
 import InfoIcon from '@material-ui/icons/Info';
-import authentification from '../utils/authentification';
-import { useContextValue } from '../shared/AppContextProvider';
+import authentification from '../../utils/authentification';
+import { useContextValue } from '../../shared/AppContextProvider';
 
 
 const StyledMenu = (props: any) => (

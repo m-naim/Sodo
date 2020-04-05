@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskContainer from './tasks/TaskContainer';
-import SideBar from './sideBar.jsx';
+import SideBar from './sideBar/sideBar.jsx';
 import StatesBar from './statistics/StatesBar';
 import SliderModel from './slider/SliderModel';
 import { ThemeProvider,  createMuiTheme, PaletteType } from '@material-ui/core';
@@ -20,15 +20,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
 
-    <div className="App">
-      <div className="main-container">
-        <SideBar />
+      <div className="App">
+        <div className="main-container">
+          <SideBar />
 
-        <TaskContainer />
-        <StatesBar />
-        <SliderModel />
+          <TaskContainer />
+          <StatesBar />
+          <SliderModel />
+        </div>
       </div>
-    </div>
     </ThemeProvider>
   );
 }

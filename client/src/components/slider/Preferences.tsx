@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  List, ListItem, ListItemIcon, Checkbox, ListItemText, ListSubheader, FormControl, FormControlLabel, Switch,
+  List, ListItem, ListItemIcon, Checkbox, ListItemText, ListSubheader, FormControl, FormControlLabel, Switch, FormLabel, FormGroup,
 } from '@material-ui/core';
 
 const displayPreferences = [
@@ -19,6 +19,10 @@ function getPreferences(prefs: any) {
 
 const Preferences = () => {
   const [state, setState] = useState(getPreferences(displayPreferences));
+  const [switchs, setSwitch] = useState({
+    darkMode: localStorage.getItem('prefers-color-scheme')==='dark',
+    sound: true
+  });
 
   const handleCheckboxClick = (id:number, storageKey:string) => {
     const newState = state.slice();
@@ -28,21 +32,30 @@ const Preferences = () => {
   };
 
   const handleDarkMode=()=>{
+    if(switchs.darkMode)
+    localStorage.setItem('prefers-color-scheme','light');
+    else
     localStorage.setItem('prefers-color-scheme','dark');
+
+    setSwitch(prev=>{return {...prev, darkMode: !prev.darkMode}});
   }
 
   return (
     <div className="slider-rigth-container-centerd">
-      <FormControl component="fieldset" onChange={handleDarkMode}>
-  
-        <FormControlLabel
-          value="start"
-          control={<Switch color="primary" />}
-          label="Activer le mode nuit"
-          labelPlacement="start"
-        />
         
-      </FormControl>
+      <FormControl component="fieldset">
+      <FormLabel component="legend">Assign responsibility</FormLabel>
+      <FormGroup>
+      <FormControlLabel
+          control={<Switch checked={switchs.darkMode} onChange={handleDarkMode} color="primary" />}
+          label="Mode nuit"
+        />
+        <FormControlLabel
+          control={<Switch checked={true}  color="primary" />}
+          label="son"
+        />
+      </FormGroup>
+    </FormControl>
       <List
         className="list"
         subheader={(
