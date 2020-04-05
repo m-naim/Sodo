@@ -4,8 +4,9 @@
 
 - [Status](#status)
 - [Screenshot](#Screenshot)
+- [Technologies](#Technologies)
 - [What's included](#whats-included)
-- [screen](#thanks)
+- [thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
 ## Status
